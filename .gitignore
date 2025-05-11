@@ -84,3 +84,6 @@ crashlytics-build.properties
 /[Aa]ssets/StreamingAssets/*.bank
 /[Aa]ssets/StreamingAssets/*.strings.bank
 /[Aa]ssets/StreamingAssets/*.guids
+
+# Optional: ignore mobile platform source files if not used
+Assets/Plugins/FMOD/src/PlatformIOS.cs

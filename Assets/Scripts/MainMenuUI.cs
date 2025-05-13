@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    public GameObject optionsPanel;
+    public GameObject mainMenuPanel; 
+
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene");
@@ -15,8 +18,16 @@ public class MainMenuUI : MonoBehaviour
 
     public void OpenOptions()
     {
-        // You could show an options panel here instead
-        Debug.Log("Options menu opened");
+        optionsPanel.SetActive(true);
+        if (mainMenuPanel != null)
+            mainMenuPanel.SetActive(false); 
+    }
+
+    public void CloseOptions()
+    {
+        optionsPanel.SetActive(false);
+        if (mainMenuPanel != null)
+            mainMenuPanel.SetActive(true);
     }
 
     public void QuitGame()

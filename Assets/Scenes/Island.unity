@@ -227,6 +227,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2423149334757843111, guid: 8f468c27924bab2408d32beb2ba6ec5d, type: 3}
+--- !u!20 &92251378 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1377923340029857956, guid: f96fa8898ee7b914f8f3ea6961ee06d4, type: 3}
+  m_PrefabInstance: {fileID: 4393228151499434879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &114114927 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8263207585888609871, guid: 8f468c27924bab2408d32beb2ba6ec5d, type: 3}
@@ -911,7 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf473894296e26947957d4c9d9341040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 92251378}
 --- !u!1 &535765427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2856890461506477959, guid: 8f468c27924bab2408d32beb2ba6ec5d, type: 3}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2e59191e0972b4096627c00f678e78, type: 3}
+  m_Name: TileCatalog
+  m_EditorClassIdentifier: 
+  tiles:
+  - tileName: Tile_line1
+    prefab: {fileID: 3709452552305044197, guid: 543b839bf9d2c8a4ea30f9a351432d81, type: 3}
+  - tileName: Tile_line2
+    prefab: {fileID: 3709452552305044197, guid: 543b839bf9d2c8a4ea30f9a351432d81, type: 3}
+  - tileName: Tile_line3
+    prefab: {fileID: 3709452552305044197, guid: 543b839bf9d2c8a4ea30f9a351432d81, type: 3}
+  - tileName: Tile_line4
+    prefab: {fileID: 3709452552305044197, guid: 543b839bf9d2c8a4ea30f9a351432d81, type: 3}
+  - tileName: Tile_line5
+    prefab: {fileID: 3709452552305044197, guid: 543b839bf9d2c8a4ea30f9a351432d81, type: 3}
+  - tileName: Tile_corner1
+    prefab: {fileID: 2175735237092344273, guid: f488cfd89373c714da5350b02641c114, type: 3}
+  - tileName: Tile_corner2
+    prefab: {fileID: 2175735237092344273, guid: f488cfd89373c714da5350b02641c114, type: 3}
+  - tileName: Tile_corner3
+    prefab: {fileID: 2175735237092344273, guid: f488cfd89373c714da5350b02641c114, type: 3}
+  - tileName: Tile_split1
+    prefab: {fileID: 1928134940920941499, guid: 6db4ad6b637d58c4992eac8d7647d103, type: 3}
+  - tileName: Tile_split2
+    prefab: {fileID: 1928134940920941499, guid: 6db4ad6b637d58c4992eac8d7647d103, type: 3}
+  - tileName: Tile_split3
+    prefab: {fileID: 1928134940920941499, guid: 6db4ad6b637d58c4992eac8d7647d103, type: 3}
+  - tileName: Tile_end1
+    prefab: {fileID: 8680745972467045031, guid: 63fdb468cbeae8645a2ea4bb4e26febb, type: 3}
+  - tileName: Tile_end2
+    prefab: {fileID: 8680745972467045031, guid: 63fdb468cbeae8645a2ea4bb4e26febb, type: 3}
+  - tileName: Tile_end3
+    prefab: {fileID: 8680745972467045031, guid: 63fdb468cbeae8645a2ea4bb4e26febb, type: 3}

@@ -19,6 +19,10 @@ public class TileSpawner : MonoBehaviour
                 continue;
             }
             tileLookup[tile.tileName] = tile.prefab;
+            if (tile.prefab.GetComponent<Collider>() == null)
+            {
+                tile.prefab.AddComponent<BoxCollider>();
+            }
         }
 
         foreach (var placement in placements)
@@ -29,9 +33,13 @@ public class TileSpawner : MonoBehaviour
                 continue;
             }
 
-            Quaternion rot = Quaternion.Euler(placement.rotationEuler);
+            Quaternion rot = Quaternion.Euler(Vector3.zero);
             var go = Instantiate(prefab, placement.position, rot, transform);
             go.name = placement.tileName;
+            for (int i = 0; i < (placement.rotationEuler.z / 90f); i++)
+            {
+                go.GetComponent<Tile>().RotateClockwise();
+            }
         }
     }
 

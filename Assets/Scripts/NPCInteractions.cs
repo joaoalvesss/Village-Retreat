@@ -14,6 +14,10 @@ public class NPCInteraction : MonoBehaviour
     private bool player1Ready = false;
     private bool player2Ready = false;
 
+    private GameObject player1InteractingWith = null;
+    private GameObject player2InteractingWith = null;
+
+
     void Start()
     {
         player1PromptText.gameObject.SetActive(false);
@@ -27,9 +31,25 @@ public class NPCInteraction : MonoBehaviour
         {
             if (!player1Ready)
             {
-                player1PromptText.text = "Press ALT to play";
+                if (player1InteractingWith != null && player1InteractingWith.name == "WoodWorker")
+                {
+                    player1PromptText.text = "Press ALT to play WoodWorker";
+                }else if (player1InteractingWith != null && player1InteractingWith.name == "Bricklayer")
+                {
+                    player1PromptText.text = "Press ALT to play Bricklayer";
+                }else if (player1InteractingWith != null && player1InteractingWith.name == "Painter")
+                {
+                    player1PromptText.text = "Press ALT to play Painter";
+                }else if (player1InteractingWith != null && player1InteractingWith.name == "Gardener")
+                {
+                    player1PromptText.text = "Press ALT to play Gardener";
+                }
+                else if (player1InteractingWith != null && player1InteractingWith.name == "Electrician")
+                {
+                    player1PromptText.text = "Press ALT to play Electrician";
+                }
 
-                if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
+                    if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
                 {
                     player1Ready = true;
                     player1PromptText.text = "Esperando o segundo jogador...\n(Press ESC para sair)";
@@ -40,7 +60,26 @@ public class NPCInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     player1Ready = false;
-                    player1PromptText.text = "Press ALT to play";
+                    if (player1InteractingWith != null && player1InteractingWith.name == "WoodWorker")
+                    {
+                        player1PromptText.text = "Press ALT to play WoodWorker";
+                    }
+                    else if (player1InteractingWith != null && player1InteractingWith.name == "Bricklayer")
+                    {
+                        player1PromptText.text = "Press ALT to play Bricklayer";
+                    }
+                    else if (player1InteractingWith != null && player1InteractingWith.name == "Painter")
+                    {
+                        player1PromptText.text = "Press ALT to play Painter";
+                    }
+                    else if (player1InteractingWith != null && player1InteractingWith.name == "Gardener")
+                    {
+                        player1PromptText.text = "Press ALT to play Gardener";
+                    }
+                    else if (player1InteractingWith != null && player1InteractingWith.name == "Electrician")
+                    {
+                        player1PromptText.text = "Press ALT to play Electrician";
+                    }
                 }
             }
         }
@@ -50,7 +89,26 @@ public class NPCInteraction : MonoBehaviour
         {
             if (!player2Ready)
             {
-                player2PromptText.text = "Press ENTER to play";
+                if (player2InteractingWith != null && player2InteractingWith.name == "WoodWorker")
+                {
+                    player2PromptText.text = "Press ALT to play WoodWorker";
+                }
+                else if (player2InteractingWith != null && player2InteractingWith.name == "Bricklayer")
+                {
+                    player2PromptText.text = "Press ALT to play Bricklayer";
+                }
+                else if (player2InteractingWith != null && player2InteractingWith.name == "Painter")
+                {
+                    player2PromptText.text = "Press ALT to play Painter";
+                }
+                else if (player2InteractingWith != null && player2InteractingWith.name == "Gardener")
+                {
+                    player2PromptText.text = "Press ALT to play Gardener";
+                }
+                else if (player2InteractingWith != null && player2InteractingWith.name == "Electrician")
+                {
+                    player2PromptText.text = "Press ALT to play Electrician";
+                }
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
@@ -63,13 +121,32 @@ public class NPCInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     player2Ready = false;
-                    player2PromptText.text = "Press ENTER to play";
+                    if (player2InteractingWith != null && player2InteractingWith.name == "WoodWorker")
+                    {
+                        player2PromptText.text = "Press ALT to play WoodWorker";
+                    }
+                    else if (player2InteractingWith != null && player2InteractingWith.name == "Bricklayer")
+                    {
+                        player2PromptText.text = "Press ALT to play Bricklayer";
+                    }
+                    else if (player2InteractingWith != null && player2InteractingWith.name == "Painter")
+                    {
+                        player2PromptText.text = "Press ALT to play Painter";
+                    }
+                    else if (player2InteractingWith != null && player2InteractingWith.name == "Gardener")
+                    {
+                        player2PromptText.text = "Press ALT to play Gardener";
+                    }
+                    else if (player2InteractingWith != null && player2InteractingWith.name == "Electrician")
+                    {
+                        player2PromptText.text = "Press ALT to play Electrician";
+                    }
                 }
             }
         }
 
         // INICIAR JOGO SE OS DOIS ESTÃO PRONTOS
-        if (player1Ready && player2Ready)
+        if (player1Ready && player2Ready && (player1InteractingWith == player2InteractingWith))
         {
             player1PromptText.text = "A iniciar jogo...";
             player2PromptText.text = "A iniciar jogo...";
@@ -88,12 +165,15 @@ public class NPCInteraction : MonoBehaviour
         {
             player1Nearby = true;
             player1PromptText.gameObject.SetActive(true);
+            player1InteractingWith = gameObject;
+
         }
 
         if (other.CompareTag("Player2"))
         {
             player2Nearby = true;
             player2PromptText.gameObject.SetActive(true);
+            player2InteractingWith = gameObject;
         }
     }
 
@@ -104,6 +184,7 @@ public class NPCInteraction : MonoBehaviour
             player1Nearby = false;
             player1PromptText.gameObject.SetActive(false);
             player1Ready = false;
+            player1InteractingWith = null;
         }
 
         if (other.CompareTag("Player2"))
@@ -111,6 +192,7 @@ public class NPCInteraction : MonoBehaviour
             player2Nearby = false;
             player2PromptText.gameObject.SetActive(false);
             player2Ready = false;
+            player2InteractingWith = null;
         }
     }
 }

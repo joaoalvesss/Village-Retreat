@@ -91,55 +91,55 @@ public class NPCInteraction : MonoBehaviour
             {
                 if (player2InteractingWith != null && player2InteractingWith.name == "WoodWorker")
                 {
-                    player2PromptText.text = "Press ALT to play WoodWorker";
+                    player2PromptText.text = "Press Enter to play WoodWorker";
                 }
                 else if (player2InteractingWith != null && player2InteractingWith.name == "Bricklayer")
                 {
-                    player2PromptText.text = "Press ALT to play Bricklayer";
+                    player2PromptText.text = "Press Enter to play Bricklayer";
                 }
                 else if (player2InteractingWith != null && player2InteractingWith.name == "Painter")
                 {
-                    player2PromptText.text = "Press ALT to play Painter";
+                    player2PromptText.text = "Press Enter to play Painter";
                 }
                 else if (player2InteractingWith != null && player2InteractingWith.name == "Gardener")
                 {
-                    player2PromptText.text = "Press ALT to play Gardener";
+                    player2PromptText.text = "Press Enter to play Gardener";
                 }
                 else if (player2InteractingWith != null && player2InteractingWith.name == "Electrician")
                 {
-                    player2PromptText.text = "Press ALT to play Electrician";
+                    player2PromptText.text = "Press Enter to play Electrician";
                 }
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     player2Ready = true;
-                    player2PromptText.text = "Esperando o segundo jogador...\n(Press ESC para sair)";
+                    player2PromptText.text = "Waiting for the second player...\n(Press Backspace to exit)";
                 }
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Backspace))
                 {
                     player2Ready = false;
                     if (player2InteractingWith != null && player2InteractingWith.name == "WoodWorker")
                     {
-                        player2PromptText.text = "Press ALT to play WoodWorker";
+                        player2PromptText.text = "Press Enter to play WoodWorker";
                     }
                     else if (player2InteractingWith != null && player2InteractingWith.name == "Bricklayer")
                     {
-                        player2PromptText.text = "Press ALT to play Bricklayer";
+                        player2PromptText.text = "Press Enter to play Bricklayer";
                     }
                     else if (player2InteractingWith != null && player2InteractingWith.name == "Painter")
                     {
-                        player2PromptText.text = "Press ALT to play Painter";
+                        player2PromptText.text = "Press Enter to play Painter";
                     }
                     else if (player2InteractingWith != null && player2InteractingWith.name == "Gardener")
                     {
-                        player2PromptText.text = "Press ALT to play Gardener";
+                        player2PromptText.text = "Press Enter to play Gardener";
                     }
                     else if (player2InteractingWith != null && player2InteractingWith.name == "Electrician")
                     {
-                        player2PromptText.text = "Press ALT to play Electrician";
+                        player2PromptText.text = "Press Enter to play Electrician";
                     }
                 }
             }
@@ -148,8 +148,8 @@ public class NPCInteraction : MonoBehaviour
         // INICIAR JOGO SE OS DOIS ESTÃO PRONTOS
         if (player1Ready && player2Ready && (player1InteractingWith == player2InteractingWith))
         {
-            player1PromptText.text = "A iniciar jogo...";
-            player2PromptText.text = "A iniciar jogo...";
+            player1PromptText.text = "Loading minigame...";
+            player2PromptText.text = "Loading minigame...";
             Invoke("StartMiniGame", 1.5f);
         }
     }

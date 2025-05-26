@@ -9,12 +9,39 @@ public class GridManager : MonoBehaviour
     public TileType[,] grid;
 
     public Dictionary<Vector2Int, GameObject> potPositions = new();
+    private List<Vector2Int> allTargets = new();
 
-    void Start()
+
+    void Awake()
     {
         InitializeGrid();
-        RegisterAllPots(); // <== Add this
+        FindAllTargets();
+        RegisterAllPots(); 
         // OnDrawGizmos();
+    }
+
+    public bool AreAllTargetsCovered()
+    {
+        foreach (Vector2Int target in allTargets)
+        {
+            if (!potPositions.ContainsKey(target))
+                return false;
+        }
+        return true;
+    }
+
+
+    void FindAllTargets()
+    {
+        allTargets.Clear();
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (grid[x, y] == TileType.Target)
+                    allTargets.Add(new Vector2Int(x, y));
+            }
+        }
     }
 
     void RegisterAllPots()
@@ -271,13 +298,13 @@ public class GridManager : MonoBehaviour
         grid[5, 11] = TileType.Wall;
         grid[6, 11] = TileType.Empty;
 
-        grid[0, 11] = TileType.Wall;
-        grid[1, 11] = TileType.Wall;
-        grid[2, 11] = TileType.Wall;
-        grid[3, 11] = TileType.Wall;
-        grid[4, 11] = TileType.Wall;
-        grid[5, 11] = TileType.Wall;
-        grid[6, 11] = TileType.Empty;
+        grid[0, 12] = TileType.Wall;
+        grid[1, 12] = TileType.Wall;
+        grid[2, 12] = TileType.Wall;
+        grid[3, 12] = TileType.Wall;
+        grid[4, 12] = TileType.Wall;
+        grid[5, 12] = TileType.Wall;
+        grid[6, 12] = TileType.Empty;
 
     }
 

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5609321221556402741, guid: 71f1157b4e9dfd54ebcb69f4fa98eec3, type: 3}
       propertyPath: m_Name
-      value: cat_cartoon_character
+      value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 5146681718063874739, guid: 71f1157b4e9dfd54ebcb69f4fa98eec3, type: 3}
       propertyPath: m_LocalScale.x
@@ -97,9 +97,10 @@ MonoBehaviour:
   left: 276
   right: 275
   moveDelay: 0.1
-  verticalStepSize: 1.14
-  horizontalStepSize: 1.205
+  verticalStepSize: 1
+  horizontalStepSize: 1
   currentPos: {x: 13, y: 3}
+  gridManager: {fileID: 0}
 --- !u!65 &365620421892256419
 BoxCollider:
   m_ObjectHideFlags: 0

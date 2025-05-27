@@ -12,9 +12,12 @@ public class GameManager : MonoBehaviour
     private float elapsedTime;
     private bool isRunning = true;
     private bool isPaused = false;
+    public Generator[] generators;
+    public Home home;
 
     void Start()
-    {
+    {   
+        RefreshEnergy();
         elapsedTime = 0f;
         isRunning = true;
         if (winText != null) winText.gameObject.SetActive(false);
@@ -74,4 +77,20 @@ public class GameManager : MonoBehaviour
         elapsedTime = 0f;
         isRunning = true;
     }
+
+    public void RefreshEnergy()
+    {
+        foreach (Tile tile in FindObjectsByType<Tile>(FindObjectsSortMode.None))
+        {
+            tile.SetPowered(false);
+        }
+
+        foreach (Generator gen in generators)
+        {
+            gen.Activate();
+        }
+
+        home.Check();
+    }
+
 }

@@ -156,7 +156,31 @@ public class NPCInteraction : MonoBehaviour
 
     void StartMiniGame()
     {
-        SceneManager.LoadScene("MiniGameScene");
+        player1Ready = false;
+        player2Ready = false;
+        switch (player2InteractingWith.name) {
+            case "WoodWorker":
+                SceneManager.LoadScene("MiniGameScene_WoodChopping");
+                break;
+            case "Bricklayer":
+                SceneManager.LoadScene("MiniGameScene_MixingMortar");
+                break;
+            case "Painter":
+                SceneManager.LoadScene("MiniGameScene_PaintingWalls");
+                break;
+            case "Gardener":
+                SceneManager.LoadScene("MiniGameScene_ZenGarden");
+                break;
+            case "Electrician":
+                SceneManager.LoadScene("MiniGameScene_ElectricalConnections");
+                break;
+            default:
+                player1PromptText.text = "Minigame non existant";
+                player2PromptText.text = "Minigame non existant";
+                Invoke("Update", 1.5f);
+                break;
+        }
+
     }
 
     void OnTriggerEnter(Collider other)

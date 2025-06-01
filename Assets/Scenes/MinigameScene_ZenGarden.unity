@@ -9808,12 +9808,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1500278501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60194fd3f9b3bc547bffa17d0f404978, type: 3}
+  m_Script: {fileID: 11500000, guid: f2cf5b23a73c9e54295ea2ab09e28f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gridManager: {fileID: 466923044}
   timerText: {fileID: 0}
-  winText: {fileID: 0}
+  winText: {fileID: 1606072292}
 --- !u!1001 &1502276549
 PrefabInstance:
   m_ObjectHideFlags: 0

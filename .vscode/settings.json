@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Village-Retreat.sln"
+    "dotnet.defaultSolution": "Village-Retreat-Clone.sln",
+    "FSharp.suggestGitignore": false
 }

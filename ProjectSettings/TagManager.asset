@@ -4,6 +4,11 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Pot
+  - Water
+  - Ground
+  - Target
+  - Wall
   - Tile
   - Player1
   - Player2

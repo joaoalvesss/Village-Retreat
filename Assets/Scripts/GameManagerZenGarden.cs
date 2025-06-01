@@ -79,7 +79,7 @@ public class GameManagerZenGarden : MonoBehaviour
         while (seconds > 0)
         {
             if (countdownText != null)
-                countdownText.text = $"Going back to island in {seconds} seconds! ";
+                countdownText.text = $"Going back to island in {seconds} seconds!";
             yield return new WaitForSeconds(1f);
             seconds--;
         }

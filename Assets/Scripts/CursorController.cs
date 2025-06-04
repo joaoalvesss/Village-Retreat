@@ -41,6 +41,7 @@ public class CursorController : MonoBehaviour
 
         foreach (var hit in hits)
         {
+            Debug.LogWarning("ola");
             if (hit.CompareTag("Tile"))
             {
                 hit.GetComponent<Tile>().RotateClockwise();

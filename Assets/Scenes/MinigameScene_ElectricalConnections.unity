@@ -6033,7 +6033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 572921700}
-  remaningTime: 5
+  remaningTime: 120
 --- !u!1 &572921698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,8 +6717,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60194fd3f9b3bc547bffa17d0f404978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generators: []
-  home: {fileID: 0}
+  generators:
+  - {fileID: 1199424156}
+  - {fileID: 653923335}
+  - {fileID: 439053501}
+  - {fileID: 386907150}
+  - {fileID: 1235714443}
+  - {fileID: 1725266327}
+  - {fileID: 621569489}
+  home: {fileID: 1119456954}
 --- !u!43 &801614634
 Mesh:
   m_ObjectHideFlags: 0

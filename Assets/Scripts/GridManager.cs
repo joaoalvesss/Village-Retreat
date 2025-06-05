@@ -20,16 +20,38 @@ public class GridManager : MonoBehaviour
         // OnDrawGizmos();
     }
 
+    public TargetTile FindTargetAtPosition(Vector2Int pos)
+    {
+        foreach (TargetTile target in FindObjectsByType<TargetTile>(FindObjectsSortMode.None))
+        {
+            if (target.gridPos == pos)
+                return target;
+        }
+        return null;
+    }
+
     public bool AreAllTargetsCovered()
     {
-        foreach (Vector2Int target in allTargets)
+        foreach (TargetTile target in FindObjectsByType<TargetTile>(FindObjectsSortMode.None))
         {
-            if (!potPositions.ContainsKey(target))
+            if (!potPositions.ContainsKey(target.gridPos)) return false;
+
+            GameObject potObj = potPositions[target.gridPos];
+            Pot pot = potObj.GetComponent<Pot>();
+            if (pot == null) return false;
+
+            if (!DoesPotMatchTarget(pot.potType, target.targetType))
                 return false;
         }
         return true;
     }
 
+    public bool DoesPotMatchTarget(PotType pot, TargetType target)
+    {
+        return (pot == PotType.LightGreen && target == TargetType.White)
+            || (pot == PotType.DarkGreen && target == TargetType.Orange)
+            || (pot == PotType.White && target == TargetType.Green);
+    }
 
     void FindAllTargets()
     {
@@ -46,7 +68,7 @@ public class GridManager : MonoBehaviour
 
     void RegisterAllPots()
     {
-        Pot[] potsInScene = FindObjectsByType<Pot>(FindObjectsSortMode.None); // No sorting needed
+        Pot[] potsInScene = FindObjectsByType<Pot>(FindObjectsSortMode.None); 
         foreach (Pot pot in potsInScene)
         {
             Vector2Int pos = new(Mathf.RoundToInt(pot.transform.position.x), Mathf.RoundToInt(pot.transform.position.z));
@@ -312,7 +334,7 @@ public class GridManager : MonoBehaviour
     {
         if (!IsInBounds(pos)) return false;
         if (grid[pos.x, pos.y] == TileType.Wall) return false;
-        if (potPositions.ContainsKey(pos)) return false; // Pot is blocking
+        if (potPositions.ContainsKey(pos)) return false; 
         return true;
     }
 
@@ -326,6 +348,54 @@ public class GridManager : MonoBehaviour
         potPositions[to] = pot;
 
         pot.transform.position = new Vector3(to.x, pot.transform.position.y, to.y);
+
+        TileType tileType = GetTileType(to);
+        if (tileType == TileType.Target)
+        {
+            TargetTile target = FindTargetAtPosition(to);
+            Pot potComponent = pot.GetComponent<Pot>();
+
+            if (target != null && potComponent != null)
+            {
+                var gameManager = GameManagerZenGarden.Instance;
+                if (DoesPotMatchTarget(potComponent.potType, target.targetType))
+                {
+                    if (!gameManager.alreadyScored.Contains(to))
+                    {
+                        if (potComponent.potType == PotType.White && target.targetType == TargetType.Green)
+                        {
+                            float currentTime = Time.time;
+                            gameManager.whiteOnGreenTimes.Add(currentTime);
+                            gameManager.whiteOnGreenTimes.RemoveAll(t => currentTime - t > 1f);
+
+                            int bonusCount = gameManager.whiteOnGreenTimes.Count;
+
+                            if (bonusCount >= 2)
+                            {
+                                gameManager.AddScore(50);
+                                gameManager.ShowFeedback("Synced Pots Bonus!");
+                            }
+                            else
+                            {
+                                gameManager.AddScore(10);
+                            }
+                        }
+                        else
+                        {
+                            gameManager.AddScore(10);
+                        }
+
+                        gameManager.alreadyScored.Add(to);
+                    }
+                }
+                else
+                {
+                    gameManager.SubtractScore(5);
+                    gameManager.ShowFeedback("Wrong pot on target!");
+                }
+            }
+        }
+
         return true;
     }
 

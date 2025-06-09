@@ -27,7 +27,7 @@ public class GameManagerZenGarden : MonoBehaviour
     void Start()
     {
         elapsedTime = 0f;
-        isRunning = true;
+        isRunning = false;
         UpdateScoreUI();
         
         if (giveUpButton != null)
@@ -71,6 +71,12 @@ public class GameManagerZenGarden : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    }
+
+    public void StartTimer()
+    {
+        isRunning = true;
+        elapsedTime = 0f;
     }
 
     public void ForceEndGame()

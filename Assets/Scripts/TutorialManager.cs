@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class TutorialManager : MonoBehaviour
     public SpeechBalloon player1Balloon;
     public SpeechBalloon player2Balloon;
     public GameObject continuePrompt;
+
+    public Image image1;
+    public Image image2;
 
     private int step = 0;
 
@@ -32,23 +36,34 @@ public class TutorialManager : MonoBehaviour
 
     void ShowNextStep()
     {
+        player1Balloon.Hide(image1);
+        player2Balloon.Hide(image2);
+        continuePrompt.SetActive(true);
+        
         step++;
         switch (step)
         {
             case 1:
-                player1Balloon.Show("Welcome to the Zen Garden challenge!", 3f);
+                player1Balloon.Show("Welcome to the Zen Garden!", image1);
                 break;
             case 2:
-                player2Balloon.Show("Move the pots onto the matching colored targets!", 4f);
+                player2Balloon.Show("Move the pots onto the matching colored targets!", image2);
                 break;
             case 3:
-                player1Balloon.Show("But be careful... water will destroy your pots!", 4f);
+                player1Balloon.Show("Each pot has a color. Match it with the target!", image1);
                 break;
             case 4:
-                player2Balloon.Show("Get more points by placing pots quickly and correctly!", 4f);
-                break;
+                player2Balloon.Show("Light green pots match white targets! Dark green pots match orange targets!", image2);
+                break; 
             case 5:
-                continuePrompt.SetActive(true); 
+                player1Balloon.Show("White pots match green targets and placing both at the same time gives bonus points!", image1);
+                break;           
+            case 6:
+                player2Balloon.Show("But be careful... water will destroy your pots!", image2);
+                break;
+            case 7:
+                player1Balloon.Show("Get more points by placing pots quickly and correctly!", image1);
+                EndTutorial();
                 break;
         }
     }
@@ -59,6 +74,7 @@ public class TutorialManager : MonoBehaviour
         tutorialUI.SetActive(false);
         gameplayCam.gameObject.SetActive(true);
         gameplayUI.SetActive(true);
+
+        GameManagerZenGarden.Instance.StartTimer(); 
     }
 }
-

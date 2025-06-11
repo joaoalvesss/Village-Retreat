@@ -3115,7 +3115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf473894296e26947957d4c9d9341040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  playerBody: {fileID: 1606219488}
+  cam: {fileID: 1377923340182960957}
+  cameraFollowSpeed: 5
 --- !u!114 &1606219494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4572,7 +4574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf473894296e26947957d4c9d9341040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  playerBody: {fileID: 2124543925}
+  cam: {fileID: 3452216097735818203}
+  cameraFollowSpeed: 5
 --- !u!114 &2124543933
 MonoBehaviour:
   m_ObjectHideFlags: 0

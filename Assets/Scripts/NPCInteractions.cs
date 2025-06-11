@@ -19,7 +19,7 @@ public class NPCInteraction : MonoBehaviour
 
     public Animator player1Animator;
     public Animator player2Animator;
-    public Animator GardenerAnimator;
+    public Animator NPCAnimator;
 
 
     void Start()
@@ -57,7 +57,7 @@ public class NPCInteraction : MonoBehaviour
                 {
                     player1Ready = true;
                     player1PromptText.text = "Esperando o segundo jogador...\n(Press ESC para sair)";
-                    GardenerAnimator.SetBool("isTalking", true);
+                    NPCAnimator.SetBool("isTalking", true);
                     player1Animator.SetBool("isTalking", true);
                 }
             }
@@ -66,7 +66,7 @@ public class NPCInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     player1Ready = false;
-                    GardenerAnimator.SetBool("isTalking", false);
+                    NPCAnimator.SetBool("isTalking", false);
                     player1Animator.SetBool("isTalking", false);
                     if (player1InteractingWith != null && player1InteractingWith.name == "WoodWorker")
                     {
@@ -122,7 +122,7 @@ public class NPCInteraction : MonoBehaviour
                 {
                     player2Ready = true;
                     player2PromptText.text = "Waiting for the second player...\n(Press Backspace to exit)";
-                    GardenerAnimator.SetBool("isTalking", true);
+                    NPCAnimator.SetBool("isTalking", true);
                     player2Animator.SetBool("isTalking", true);
                 }
             }
@@ -131,7 +131,7 @@ public class NPCInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Backspace))
                 {
                     player2Ready = false;
-                    GardenerAnimator.SetBool("isTalking", false);
+                    NPCAnimator.SetBool("isTalking", false);
                     player2Animator.SetBool("isTalking", false);
                     if (player2InteractingWith != null && player2InteractingWith.name == "WoodWorker")
                     {

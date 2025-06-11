@@ -17,6 +17,10 @@ public class NPCInteraction : MonoBehaviour
     private GameObject player1InteractingWith = null;
     private GameObject player2InteractingWith = null;
 
+    public Animator player1Animator;
+    public Animator player2Animator;
+    public Animator GardenerAnimator;
+
 
     void Start()
     {
@@ -53,6 +57,8 @@ public class NPCInteraction : MonoBehaviour
                 {
                     player1Ready = true;
                     player1PromptText.text = "Esperando o segundo jogador...\n(Press ESC para sair)";
+                    GardenerAnimator.SetBool("isTalking", true);
+                    player1Animator.SetBool("isTalking", true);
                 }
             }
             else
@@ -60,6 +66,8 @@ public class NPCInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     player1Ready = false;
+                    GardenerAnimator.SetBool("isTalking", false);
+                    player1Animator.SetBool("isTalking", false);
                     if (player1InteractingWith != null && player1InteractingWith.name == "WoodWorker")
                     {
                         player1PromptText.text = "Press ALT to play WoodWorker";
@@ -114,6 +122,8 @@ public class NPCInteraction : MonoBehaviour
                 {
                     player2Ready = true;
                     player2PromptText.text = "Waiting for the second player...\n(Press Backspace to exit)";
+                    GardenerAnimator.SetBool("isTalking", true);
+                    player2Animator.SetBool("isTalking", true);
                 }
             }
             else
@@ -121,6 +131,8 @@ public class NPCInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Backspace))
                 {
                     player2Ready = false;
+                    GardenerAnimator.SetBool("isTalking", false);
+                    player2Animator.SetBool("isTalking", false);
                     if (player2InteractingWith != null && player2InteractingWith.name == "WoodWorker")
                     {
                         player2PromptText.text = "Press Enter to play WoodWorker";

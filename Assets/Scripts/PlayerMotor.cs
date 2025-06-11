@@ -7,7 +7,7 @@ public class PlayerMotor : MonoBehaviour
     private bool isGrounded;
 
     public float jumpHeight = 1.5f;
-    public float speed = 5f;
+    public float speed = 15f;
     public float gravity = -9.8f;
 
     private PlayerAnimationController animController;
@@ -26,10 +26,15 @@ public class PlayerMotor : MonoBehaviour
 
     public void ProcessMove(Vector2 input)
     {
-        Vector3 moveDirection = new Vector3(input.x, 0, input.y);
+        // Movimento para frente e para trás
+        Vector3 moveDirection = new Vector3(0, 0, input.y);
         Vector3 worldMove = transform.TransformDirection(moveDirection);
         controller.Move(worldMove * speed * Time.deltaTime);
 
+        // Roda o jogador com o eixo X (A/D)
+        transform.Rotate(Vector3.up * input.x * speed * 15f * Time.deltaTime); // A velocidade pode ser ajustada
+
+        // Animações e gravidade (como já tinhas)
         bool isWalking = moveDirection.magnitude > 0.1f;
         animController.SetWalking(isWalking);
 
@@ -41,6 +46,7 @@ public class PlayerMotor : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+
 
     public void Jump()
     {

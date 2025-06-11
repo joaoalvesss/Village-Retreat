@@ -24,7 +24,7 @@ public class InputManager2 : MonoBehaviour
     private void LateUpdate()
     {
         //Tell playermotor to move based on the actions
-        look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
+        //look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
     }
     private void OnEnable()
     {

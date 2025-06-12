@@ -10,7 +10,9 @@ public class PlayerControllerPaiting : MonoBehaviour
     {
         float h = Input.GetAxisRaw(horizontal);
         float v = Input.GetAxisRaw(vertical);
+
         Vector3 move = new Vector3(h, v, 0).normalized;
         transform.position += speed * Time.deltaTime * move;
     }
+
 }

@@ -7,15 +7,29 @@ public class WallGridManager : MonoBehaviour
     public int height = 10;
     public float spacing = 1.1f;
 
+    public PatternManager patternManager; 
+
     void Start()
     {
+        WallTile[] tiles = new WallTile[width * height];
+        int index = 0;
+
         for (int y = 0; y < height; y++)
         {
             for (int x = 0; x < width; x++)
             {
                 Vector3 pos = new(x * spacing, y * spacing, 0);
-                GameObject tile = Instantiate(tilePrefab, pos, Quaternion.identity, transform);
+                GameObject tileGO = Instantiate(tilePrefab, pos, Quaternion.identity, transform);
+
+                WallTile tile = tileGO.GetComponent<WallTile>();
+                tiles[index] = tile;
+                index++;
             }
+        }
+
+        if (patternManager != null)
+        {
+            patternManager.SetTiles(tiles);
         }
     }
 }

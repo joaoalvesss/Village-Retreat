@@ -109,8 +109,8 @@ MonoBehaviour:
     prefab: {fileID: 2175735237092344273, guid: f488cfd89373c714da5350b02641c114, type: 3}
   - tileName: Tile_corner20
     prefab: {fileID: 2175735237092344273, guid: f488cfd89373c714da5350b02641c114, type: 3}
-  - tileName: Tile_corner21
-    prefab: {fileID: 2175735237092344273, guid: f488cfd89373c714da5350b02641c114, type: 3}
+  - tileName: Tile_split13
+    prefab: {fileID: 1928134940920941499, guid: 6db4ad6b637d58c4992eac8d7647d103, type: 3}
   - tileName: Tile_corner22
     prefab: {fileID: 2175735237092344273, guid: f488cfd89373c714da5350b02641c114, type: 3}
   - tileName: Tile_line13
@@ -121,8 +121,8 @@ MonoBehaviour:
     prefab: {fileID: 8680745972467045031, guid: 63fdb468cbeae8645a2ea4bb4e26febb, type: 3}
   - tileName: Tile_split10
     prefab: {fileID: 1928134940920941499, guid: 6db4ad6b637d58c4992eac8d7647d103, type: 3}
-  - tileName: Tile_corner23
-    prefab: {fileID: 2175735237092344273, guid: f488cfd89373c714da5350b02641c114, type: 3}
+  - tileName: Tile_split12
+    prefab: {fileID: 1928134940920941499, guid: 6db4ad6b637d58c4992eac8d7647d103, type: 3}
   - tileName: Tile_corner24
     prefab: {fileID: 2175735237092344273, guid: f488cfd89373c714da5350b02641c114, type: 3}
   - tileName: Tile_line14

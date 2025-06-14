@@ -31,6 +31,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Metallic: 1
+    - _QueueControl: 0
     - _Roughness: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}

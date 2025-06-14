@@ -32,6 +32,14 @@ public class WallTile : MonoBehaviour
 
     public bool IsCorrect()
     {
-        return currentColor == targetColor;
+        return AreColorsSimilar(currentColor, targetColor, 0.01f);
     }
+
+    private bool AreColorsSimilar(Color a, Color b, float tolerance)
+    {
+        return Mathf.Abs(a.r - b.r) < tolerance &&
+            Mathf.Abs(a.g - b.g) < tolerance &&
+            Mathf.Abs(a.b - b.b) < tolerance;
+    }
+
 }

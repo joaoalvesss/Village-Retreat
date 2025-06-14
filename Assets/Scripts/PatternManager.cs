@@ -25,7 +25,10 @@ public class PatternManager : MonoBehaviour
         foreach (WallTile tile in tiles)
         {
             if (!tile.IsCorrect())
+            {
+                Debug.Log($"Mismatch on tile {tile.name}: target={tile.targetColor}, current={tile.currentColor}");
                 return false;
+            }
         }
         return true;
     }

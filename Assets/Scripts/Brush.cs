@@ -7,6 +7,8 @@ public class Brush : MonoBehaviour
     private PaintSource overlappingSource;
     public UnityEngine.UI.Image brushColorUI;
     private Renderer rend;
+    public KeyCode paintKey = KeyCode.Space;
+    public PlayerOwner playerOwner;
 
     void Start()
     {
@@ -16,14 +18,19 @@ public class Brush : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(paintKey))
         {
             if (overlappingTile != null)
             {
                 overlappingTile.Paint(currentColor);
+                if (FindFirstObjectByType<PatternManager>()?.IsPatternMatched() == true)
+                {
+                    FindFirstObjectByType<GameManagerPainting>()?.EndGame("YOU WON!");
+                }
+
             }
 
-            if (overlappingSource != null)
+            if (overlappingSource != null && overlappingSource.owner == playerOwner)
             {
                 currentColor = overlappingSource.paintColor;
                 Debug.Log("Picked up color: " + currentColor);
@@ -57,7 +64,7 @@ public class Brush : MonoBehaviour
 
         if (currentColor == Color.clear)
         {
-            brushColorUI.color = new Color(255, 255, 255, 255); // fully transparent
+            brushColorUI.color = new Color(255, 255, 255, 255); 
         }
         else
         {

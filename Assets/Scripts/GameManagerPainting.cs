@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerPainting : MonoBehaviour
 {
@@ -8,11 +9,18 @@ public class GameManagerPainting : MonoBehaviour
      public float maxTime = 180f;
      private float timeRemaining;
      private bool isRunning = false;
+     private int score = 0;
+     public GameObject endScreen;
+     public GameObject gameScreen;
+     public TextMeshProUGUI endMessage;
+     public float returnDelay = 30f;
+     private float returnTimer;
+     public TextMeshProUGUI returnCountdownText;
 
      void Start()
      {
           timeRemaining = maxTime;
-          isRunning = true;
+          isRunning = false;
      }
 
      void Update()
@@ -20,7 +28,7 @@ public class GameManagerPainting : MonoBehaviour
           if (!isRunning) return;
 
           timeRemaining -= Time.deltaTime;
-          timeRemaining = Mathf.Max(0, timeRemaining); 
+          timeRemaining = Mathf.Max(0, timeRemaining);
 
           UpdateTimerUI();
 
@@ -37,26 +45,61 @@ public class GameManagerPainting : MonoBehaviour
           timerText.text = $"< TIME > \n {minutes:00}:{seconds:00}";
      }
 
-     void EndGame()
+     public void EndGame(string message = "Time's up!")
      {
           isRunning = false;
-          Debug.Log("Time's up! Game over.");
-          // CHANGE LATER
-     }
-    
+          Debug.Log("Game Over: " + message);
 
-     private int score = 0;
+          if (endScreen != null)
+          {
+               gameScreen.SetActive(false);
+               endScreen.SetActive(true);
+               if (endMessage != null)
+                    endMessage.text = message;
+
+               returnTimer = returnDelay;
+               InvokeRepeating(nameof(UpdateReturnCountdown), 0f, 1f);
+          }
+     }
+
+     void UpdateReturnCountdown()
+     {
+          returnTimer -= 1f;
+          if (returnCountdownText != null)
+               returnCountdownText.text = $"Returning to island in {Mathf.CeilToInt(returnTimer)}s!";
+
+          if (returnTimer <= 0)
+          {
+               CancelInvoke(nameof(UpdateReturnCountdown));
+               LoadMainMenu();
+          }
+     }
+
+     public void OnBackButtonPressed()
+     {
+          CancelInvoke(nameof(UpdateReturnCountdown));
+          LoadMainMenu();
+     }
+
+     void LoadMainMenu()
+     {
+          SceneManager.LoadScene("Island");
+     }
 
      public void AddScore(int value)
      {
-     score += value;
-     UpdateScoreUI();
+          score += value;
+          UpdateScoreUI();
      }
 
      void UpdateScoreUI()
      {
-     if (scoreText != null)
-          scoreText.text = $"< SCORE > \n {score}";
+          if (scoreText != null)
+               scoreText.text = $"< SCORE > \n {score}";
      }
-
+     
+     public void StartTimer()
+     {
+     isRunning = true;
+     }
 }

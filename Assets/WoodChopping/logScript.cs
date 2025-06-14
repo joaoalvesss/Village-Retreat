@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class LogController : MonoBehaviour
 {
@@ -12,12 +13,49 @@ public class LogController : MonoBehaviour
     public float cutTolerance = 0.5f;
     public LogSpawner spawner;
     public GameObject cutPrefab;
+    private GameObject baseClosed;
+    private GameObject baseOpen;
 
     private List<float> leftCutPoints = new List<float>();
     private List<float> rightCutPoints = new List<float>();
 
+    GameObject FindInactiveObjectByName(string name)
+    {
+        var rootObjects = gameObject.scene.GetRootGameObjects();
+        foreach (var root in rootObjects)
+        {
+            var result = FindInChildren(root.transform, name);
+            if (result != null) return result.gameObject;
+        }
+        return null;
+    }
+
+    Transform FindInChildren(Transform parent, string name)
+    {
+        if (parent.name == name)
+            return parent;
+
+        foreach (Transform child in parent)
+        {
+            var found = FindInChildren(child, name);
+            if (found != null)
+                return found;
+        }
+
+        return null;
+    }
+
     void Start()
     {
+        baseClosed = GameObject.Find("base");
+        baseOpen = FindInactiveObjectByName("baseOpen");
+
+        if(baseClosed == null)
+            Debug.LogError("baseClosed not found!");
+
+        if(baseOpen == null)
+            Debug.LogError("baseOpen not found!");
+
         GenerateCutPoints();
     }
 
@@ -119,7 +157,7 @@ public class LogController : MonoBehaviour
                 Debug.Log($"Player {playerId} cut a log!");
 
                 GameObject cutMade = Instantiate(cutPrefab, new Vector3(side[i], -2f, -0.015f), rotation, transform);
-                cutMade.transform.localScale = new Vector3(0.045f, 1f, 0.95f);
+                cutMade.transform.localScale = new Vector3(0.045f, 1f, 0.988f);
 
                 side.RemoveAt(i);
                 CheckFinished();
@@ -130,11 +168,10 @@ public class LogController : MonoBehaviour
 
         Debug.Log($"Player {playerId} missed the cut!");
         GameObject cutMade2 = Instantiate(cutPrefab, new Vector3(x, -2f, -0.015f), rotation, transform);
-        cutMade2.transform.localScale = new Vector3(0.045f, 1f, 0.95f);
-        if (spawner != null)
-        {
-            Invoke(nameof(NotifySpawner), 0.5f);
-        }
+        cutMade2.transform.localScale = new Vector3(0.045f, 1f, 0.988f);
+        spawner.AddScore(-100);
+
+        StartCoroutine(FallAndDestroy());
     }
 
     void CheckFinished()
@@ -142,17 +179,45 @@ public class LogController : MonoBehaviour
         if (leftCutPoints.Count == 0 && rightCutPoints.Count == 0)
         {
             Debug.Log("Log fully chopped!");
+            spawner.AddScore(500);
             // You could start a fall animation or spawn the next log here
-            if (spawner != null)
-            {
-                Invoke(nameof(NotifySpawner), 0.5f); // wait a bit before replacing
-            }
+            StartCoroutine(FallAndDestroy());
         }
     }
 
-    void NotifySpawner()
+    IEnumerator FallAndDestroy()
     {
-        spawner.SpawnNewLog();
+        baseClosed.SetActive(false);
+        baseOpen.SetActive(true);
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("CutMark"))
+            {
+                child.gameObject.SetActive(false); // Hide the cut mark
+            }
+        }
+
+        Vector3 startPos = transform.position;
+        Vector3 endPos = startPos + new Vector3(0f, -5f, 0f); // fall down 5 units
+        float duration = 1.0f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            transform.position = Vector3.Lerp(startPos, endPos, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = endPos;
+
+        baseClosed.SetActive(true);
+        baseOpen.SetActive(false);
+        if (spawner != null)
+        {
+            spawner.SpawnNewLog();
+        }
+
         Destroy(gameObject);
     }
 }

@@ -4,7 +4,7 @@ public class Generator : MonoBehaviour
 {
     public Direction outputDirection;
 
-    public void Activate()
+    public void Activate(int maxDepth)
     {
         Tile target = GetAdjacentTile(outputDirection);
         if (target == null) return;
@@ -12,7 +12,7 @@ public class Generator : MonoBehaviour
         Direction reverse = GetOppositeDirection(outputDirection);
         if (target.HasOpenSide(reverse))
         {
-            target.SetPowered(true);
+            target.SetPowered(true, maxDepth);
         }
     }
 

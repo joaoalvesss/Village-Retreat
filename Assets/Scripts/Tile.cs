@@ -13,18 +13,19 @@ public class Tile : MonoBehaviour
     public Direction[] openSides;
     public bool IsPowered { get; private set; }
 
-    public void SetPowered(bool state)
+    public void SetPowered(bool state, int remainingDepth)
     {
-        if (IsPowered == state) return;
-
+        bool wasPowered = IsPowered;
         IsPowered = state;
-        UpdateVisual();
 
-        if (IsPowered)
-            PropagateEnergy();
+        if (!wasPowered)
+            UpdateVisual();
+
+        if (IsPowered && remainingDepth > 0)
+            PropagateEnergy(remainingDepth - 1);
     }
 
-    private void PropagateEnergy()
+    private void PropagateEnergy(int remainingDepth)
     {
         foreach (Direction dir in openSides)
         {
@@ -34,7 +35,7 @@ public class Tile : MonoBehaviour
             Direction reverse = GetOppositeDirection(dir);
             if (neighbor.HasOpenSide(reverse))
             {
-                neighbor.SetPowered(true);
+                neighbor.SetPowered(true, remainingDepth);
             }
         }
     }
@@ -103,6 +104,8 @@ public class Tile : MonoBehaviour
         {
             openSides[i] = RotateDirectionClockwise(openSides[i]);
         }
+
+        FindAnyObjectByType<GameManager>().RefreshEnergy();
     }
 
     private void UpdateVisual()
@@ -111,9 +114,6 @@ public class Tile : MonoBehaviour
         Material Wire = Resources.Load("Materials/Wire", typeof(Material)) as Material;
         foreach (Transform child in transform)
         {
-            if (child.name == "Cube")
-                continue;  // skip this child
-
             GameObject childGO = child.gameObject;
             childGO.GetComponent<MeshRenderer>().material = IsPowered ? Powered : Wire;
         }

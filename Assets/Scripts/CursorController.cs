@@ -37,11 +37,16 @@ public class CursorController : MonoBehaviour
 
     void TryRotateTile()
     {
+        Debug.LogWarning(FindAnyObjectByType<Timer>());
+        if (FindAnyObjectByType<Timer>().isRunning == false)
+        {
+            return;
+        }
+
         Collider[] hits = Physics.OverlapSphere(transform.position, 0.1f);
 
         foreach (var hit in hits)
         {
-            Debug.LogWarning("ola");
             if (hit.CompareTag("Tile"))
             {
                 hit.GetComponent<Tile>().RotateClockwise();

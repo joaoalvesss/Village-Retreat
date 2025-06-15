@@ -1,9 +1,13 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class Home : MonoBehaviour
 {
     public Direction outputDirection;
+    public GameObject winPanel;
+    public TextMeshProUGUI winMessageText;
+    public TextMeshProUGUI countdownText;
 
     public void Check()
     {
@@ -11,17 +15,74 @@ public class Home : MonoBehaviour
         if (target == null) return;
 
         Direction reverse = GetOppositeDirection(outputDirection);
-        if (target.HasOpenSide(reverse))
+        if (!target.HasOpenSide(reverse)) return;
+
+        bool allTilesValid = true;
+
+        foreach (Tile tile in FindObjectsByType<Tile>(FindObjectsSortMode.None))
         {
-            bool test = true;
-            foreach (Tile tile in FindObjectsByType<Tile>(FindObjectsSortMode.None))
+            if (!tile.IsPowered)
             {
-                if (!tile.IsPowered)
-                    test = false;
+                allTilesValid = false;
+                break;
             }
-            if (test)
-                SceneManager.LoadScene("Island", LoadSceneMode.Single); //Load da cena principal se ganhar
+            foreach (Direction dir in tile.openSides)
+            {
+                Component neighbor = GetConnectableAtDirection(tile.transform.position, dir);
+                if (neighbor == null)
+                {
+                    Debug.LogWarning("neighbor " + neighbor + " tile " + tile + " pos " + tile.transform.position + " dir " + dir);
+                    allTilesValid = false;
+                    break;
+                }
+            }
+
+            if (!allTilesValid) break;
         }
+        if (allTilesValid)
+        {
+            UpdateVisual();
+            FindObjectOfType<Timer>().StopTimer();
+            Invoke("winScreen", 3);
+        }
+    }
+
+    System.Collections.IEnumerator CountdownToNextScene()
+    {
+        int seconds = 30;
+        while (seconds > 0)
+        {
+            if (countdownText != null)
+                countdownText.text = $"Going back to island in {seconds} seconds!";
+            yield return new WaitForSeconds(1f);
+            seconds--;
+        }
+        changeScene();
+    }
+
+    private void winScreen()
+    {
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+            if (winMessageText != null) winMessageText.text = "YOU WON!";
+            StartCoroutine(CountdownToNextScene());
+        }
+    }
+
+    public void loseScreen()
+    {
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+            if (winMessageText != null) winMessageText.text = "GAME OVER!";
+            StartCoroutine(CountdownToNextScene());
+        }
+    }
+
+    private void changeScene()
+    {
+        SceneManager.LoadScene("Island", LoadSceneMode.Single);
     }
 
     private Tile GetAdjacentTile(Direction dir)
@@ -58,5 +119,52 @@ public class Home : MonoBehaviour
             Direction.Right => Direction.Left,
             _ => dir
         };
+    }
+
+    private Component GetConnectableAtDirection(Vector3 position, Direction dir)
+    {
+        Vector2 offset = DirectionToVector(dir);
+        Vector3 targetPos = position + new Vector3(-offset.x, offset.y, 0);  // match tile logic
+        Collider[] hits = Physics.OverlapSphere(targetPos, 0.1f);
+
+        foreach (var hit in hits)
+        {
+            if (hit.TryGetComponent<Tile>(out Tile tile))
+            {
+                if (tile.HasOpenSide(GetOppositeDirection(dir)))
+                    return tile;
+            }
+
+            // Check Generator
+            Generator gen = hit.GetComponentInParent<Generator>();
+            if (gen != null && gen.outputDirection == GetOppositeDirection(dir))
+            {
+                return gen;
+            }
+
+            // Check Home
+            Home home = hit.GetComponentInParent<Home>();
+            if (home != null && home.outputDirection == GetOppositeDirection(dir))
+            {
+                return home;
+            }
+        }
+        return null;
+    }
+
+    private void UpdateVisual()
+    {
+        Material Powered = Resources.Load("Materials/Powered", typeof(Material)) as Material;
+        foreach (Transform child in transform)
+        {
+            GameObject childGO = child.gameObject;
+            childGO.GetComponent<MeshRenderer>().material = Powered;
+        }
+    }
+
+    public void SkipToNextScene()
+    {
+        StopAllCoroutines();
+        changeScene();
     }
 }

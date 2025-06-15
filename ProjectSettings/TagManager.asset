@@ -12,6 +12,7 @@ TagManager:
   - Tile
   - Player1
   - Player2
+  - CutMark
   layers:
   - Default
   - TransparentFX

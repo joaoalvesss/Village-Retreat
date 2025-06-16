@@ -5418,6 +5418,52 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2220055455900550099, guid: 8f468c27924bab2408d32beb2ba6ec5d, type: 3}
+--- !u!1 &1954517615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1954517617}
+  - component: {fileID: 1954517618}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1954517617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954517615}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 2.4499998, z: -6.8999996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1954517618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954517615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5dc28dcdee67d84797de2845373221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicEvent: event:/Ambience/ambience_wind_birds_leaves
+  volume: 1
 --- !u!1 &1973106404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4842107847100591042, guid: 8f468c27924bab2408d32beb2ba6ec5d, type: 3}
@@ -6676,14 +6722,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &825614450899218292
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5741436995136539134}
-  m_Enabled: 0
 --- !u!4 &1093634357053051957
 Transform:
   m_ObjectHideFlags: 0
@@ -6818,14 +6856,6 @@ Transform:
   - {fileID: 1606219488}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &3999981804436615058
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8312043186505173272}
-  m_Enabled: 1
 --- !u!1 &4282999980215720219
 GameObject:
   m_ObjectHideFlags: 0
@@ -6867,8 +6897,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5435072082004426574}
   - component: {fileID: 1377923340182960957}
-  - component: {fileID: 825614450899218292}
   - component: {fileID: 8304561702022351284}
+  - component: {fileID: 8304561702022351285}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6964,6 +6994,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &8304561702022351285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741436995136539134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &8312043186505173272
 GameObject:
   m_ObjectHideFlags: 0
@@ -6974,8 +7018,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8618377828414177192}
   - component: {fileID: 3452216097735818203}
-  - component: {fileID: 3999981804436615058}
   - component: {fileID: 5748945411446770002}
+  - component: {fileID: 8618377828414177193}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6998,6 +7042,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2124543925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8618377828414177193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8312043186505173272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7020,3 +7078,4 @@ SceneRoots:
   - {fileID: 443510327}
   - {fileID: 239783901}
   - {fileID: 644296432}
+  - {fileID: 1954517617}

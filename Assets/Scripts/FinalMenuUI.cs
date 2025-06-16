@@ -1,13 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuUI : MonoBehaviour
+public class FinalMenuUI : MonoBehaviour
 {
     public GameObject optionsPanel;
     public GameObject mainMenuPanel; 
 
     public void StartGame()
     {
+        GlobalVariables.Instance.bush = 0;
+        GlobalVariables.Instance.wood = 0;
+        GlobalVariables.Instance.ink = 0;
+        GlobalVariables.Instance.light = 0;
         SceneManager.LoadScene("Island");
     }
 

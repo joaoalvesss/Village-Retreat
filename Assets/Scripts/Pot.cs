@@ -21,7 +21,11 @@ public class Pot : MonoBehaviour
 {
     if (gridManager.GetTileType(gridPos) == TileType.Water)
     {   
-        RuntimeManager.PlayOneShot(waterDropEvent, transform.position);
+        FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(waterDropEvent);
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+        instance.setVolume(0.05f); 
+        instance.start();
+        instance.release(); 
 
         GameManagerZenGarden.Instance.ShowPotDestroyedMessage(); 
         gridManager.potPositions.Remove(gridPos);

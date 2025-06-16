@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
-
+using FMODUnity;
 
 public class GameManagerZenGarden : MonoBehaviour
 {
@@ -23,6 +23,9 @@ public class GameManagerZenGarden : MonoBehaviour
     public TextMeshProUGUI finalScoreText;
     public Button giveUpButton;
     public List<float> whiteOnGreenTimes = new();
+    public EventReference timerSound;
+    private FMOD.Studio.EventInstance timerSoundInstance;
+
 
 
     void Start()
@@ -78,6 +81,11 @@ public class GameManagerZenGarden : MonoBehaviour
     {
         isRunning = true;
         elapsedTime = 0f;
+
+        timerSoundInstance = RuntimeManager.CreateInstance(timerSound);
+        timerSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+        timerSoundInstance.setVolume(0.04f); 
+        timerSoundInstance.start();
     }
 
     public void ForceEndGame()
@@ -88,6 +96,12 @@ public class GameManagerZenGarden : MonoBehaviour
 
         if (winPanel != null)
         {
+            if (timerSoundInstance.isValid())
+            {
+                timerSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                timerSoundInstance.release();
+            }
+
             winPanel.SetActive(true);
             if (winMessageText != null)
                 winMessageText.text = "GAME ENDED!";
@@ -177,6 +191,11 @@ public class GameManagerZenGarden : MonoBehaviour
             GlobalVariables.Instance.bush = 1;
             AddScore(100); 
             AwardTimeBonus(); 
+            if (timerSoundInstance.isValid())
+            {
+                timerSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                timerSoundInstance.release();
+            }
             winPanel.SetActive(true);
             if (winMessageText != null) winMessageText.text = "YOU WON!";
             if (finalScoreText != null) finalScoreText.text = "FINAL SCORE : " + score;

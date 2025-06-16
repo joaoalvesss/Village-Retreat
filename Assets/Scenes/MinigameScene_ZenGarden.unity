@@ -3401,6 +3401,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 17
   height: 13
+  successSound:
+    Guid:
+      Data1: 1236977151
+      Data2: 1271728396
+      Data3: 1730219924
+      Data4: -1612328248
+    Path: event:/Minigames/Success
+  failSound:
+    Guid:
+      Data1: 1933901509
+      Data2: 1249093880
+      Data3: -2072199547
+      Data4: -1930600790
+    Path: event:/Minigames/Failure
 --- !u!1 &474739636
 GameObject:
   m_ObjectHideFlags: 0
@@ -5025,6 +5039,13 @@ MonoBehaviour:
       Data3: -818324850
       Data4: 1445585588
     Path: event:/Ambience/ambience_wind_birds_leaves
+  speakSound:
+    Guid:
+      Data1: 535948678
+      Data2: 1277518070
+      Data3: 1869117841
+      Data4: 283250658
+    Path: event:/Character/Dialogue
 --- !u!4 &669510901
 Transform:
   m_ObjectHideFlags: 0
@@ -11733,6 +11754,13 @@ MonoBehaviour:
   finalScoreText: {fileID: 359717055}
   giveUpButton: {fileID: 498624569}
   whiteOnGreenTimes: []
+  timerSound:
+    Guid:
+      Data1: -1096587043
+      Data2: 1162251115
+      Data3: 1371158158
+      Data4: -1320506188
+    Path: event:/Music/music_animalcrossing3
 --- !u!1001 &1502276549
 PrefabInstance:
   m_ObjectHideFlags: 0

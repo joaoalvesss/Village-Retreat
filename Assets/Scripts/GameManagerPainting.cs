@@ -57,6 +57,9 @@ public class GameManagerPainting : MonoBehaviour
                if (endMessage != null)
                     endMessage.text = message;
 
+               if(endMessage.text != "Time's up!")
+                    GlobalVariables.Instance.ink = 1;
+                    
                returnTimer = returnDelay;
                InvokeRepeating(nameof(UpdateReturnCountdown), 0f, 1f);
           }

@@ -24,6 +24,7 @@ public class GameManagerZenGarden : MonoBehaviour
     public Button giveUpButton;
     public List<float> whiteOnGreenTimes = new();
 
+
     void Start()
     {
         elapsedTime = 0f;
@@ -173,6 +174,7 @@ public class GameManagerZenGarden : MonoBehaviour
     {
         if (winPanel != null)
         {
+            GlobalVariables.Instance.bush = 1;
             AddScore(100); 
             AwardTimeBonus(); 
             winPanel.SetActive(true);

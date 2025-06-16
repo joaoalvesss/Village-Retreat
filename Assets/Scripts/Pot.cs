@@ -1,4 +1,6 @@
 using UnityEngine;
+using FMODUnity;
+
 
 public enum PotType { LightGreen, DarkGreen, White }
 
@@ -7,8 +9,8 @@ public class Pot : MonoBehaviour
 
     public PotType potType;
     public Vector2Int gridPos;
-
     private GridManager gridManager;
+    public EventReference waterDropEvent;
 
     void Start()
     {
@@ -18,7 +20,9 @@ public class Pot : MonoBehaviour
     public void CheckForDestruction()
 {
     if (gridManager.GetTileType(gridPos) == TileType.Water)
-    {
+    {   
+        RuntimeManager.PlayOneShot(waterDropEvent, transform.position);
+
         GameManagerZenGarden.Instance.ShowPotDestroyedMessage(); 
         gridManager.potPositions.Remove(gridPos);
         Destroy(gameObject);

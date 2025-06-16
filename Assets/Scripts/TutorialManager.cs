@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -10,14 +12,17 @@ public class TutorialManager : MonoBehaviour
     public SpeechBalloon player1Balloon;
     public SpeechBalloon player2Balloon;
     public GameObject continuePrompt;
-
     public Image image1;
     public Image image2;
-
     private int step = 0;
+    public EventReference musicEvent;
+    private FMOD.Studio.EventInstance musicInstance;
 
     void Start()
     {
+        musicInstance = RuntimeManager.CreateInstance(musicEvent);
+        musicInstance.start();
+
         tutorialCam.gameObject.SetActive(true);
         tutorialUI.SetActive(true);
         gameplayCam.gameObject.SetActive(false);
@@ -70,6 +75,9 @@ public class TutorialManager : MonoBehaviour
 
     public void EndTutorial()
     {
+        musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        musicInstance.release();
+
         tutorialCam.gameObject.SetActive(false);
         tutorialUI.SetActive(false);
         gameplayCam.gameObject.SetActive(true);

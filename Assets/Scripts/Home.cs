@@ -31,7 +31,6 @@ public class Home : MonoBehaviour
                 Component neighbor = GetConnectableAtDirection(tile.transform.position, dir);
                 if (neighbor == null)
                 {
-                    Debug.LogWarning("neighbor " + neighbor + " tile " + tile + " pos " + tile.transform.position + " dir " + dir);
                     allTilesValid = false;
                     break;
                 }
@@ -42,7 +41,8 @@ public class Home : MonoBehaviour
         if (allTilesValid)
         {
             UpdateVisual();
-            FindObjectOfType<Timer>().StopTimer();
+            GlobalVariables.Instance.light = 1;
+            Object.FindFirstObjectByType<Timer>().StopTimer();
             Invoke("winScreen", 3);
         }
     }

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
+using FMOD.Studio;
 
 public class TutorialManagerElectrical : MonoBehaviour
 {
@@ -16,8 +18,18 @@ public class TutorialManagerElectrical : MonoBehaviour
 
     private int step = 0;
 
+    private EventInstance instance;
+
+    private string minigameMusic1 = "event:/Music/minigames/Mini 01";
+    private string minigameMusic2 = "event:/Music/minigames/Mini 02";
+    
     void Start()
     {
+        instance = RuntimeManager.CreateInstance(minigameMusic2);
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(new Vector3(0, 0, 10)));
+        instance.setVolume(0.01f);
+        instance.start();
+        instance.release();
         tutorialCam.gameObject.SetActive(true);
         tutorialUI.SetActive(true);
         gameplayCam.gameObject.SetActive(false);
@@ -86,6 +98,12 @@ public class TutorialManagerElectrical : MonoBehaviour
 
     public void EndTutorial()
     {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance = RuntimeManager.CreateInstance(minigameMusic1);
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(new Vector3(-0.5f, 4.5f, 6)));
+        instance.setVolume(0.01f);
+        instance.start();
+        instance.release();
         tutorialCam.gameObject.SetActive(false);
         tutorialUI.SetActive(false);
         gameplayCam.gameObject.SetActive(true);

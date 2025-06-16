@@ -1,4 +1,6 @@
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class CursorController : MonoBehaviour
 {
@@ -7,8 +9,9 @@ public class CursorController : MonoBehaviour
     public KeyCode rotateKey = KeyCode.E;
     public Vector2 heightLimit;
     public Vector2 widthLimit;
+    private string rotateSound = "event:/Minigames/Electricalconnections/rotação";
 
-    public float moveCooldown = 0.2f;
+public float moveCooldown = 0.2f;
     private float lastMoveTime;
 
     public float gridSize = 1f;
@@ -37,7 +40,6 @@ public class CursorController : MonoBehaviour
 
     void TryRotateTile()
     {
-        Debug.LogWarning(FindAnyObjectByType<Timer>());
         if (FindAnyObjectByType<Timer>().isRunning == false)
         {
             return;
@@ -49,8 +51,15 @@ public class CursorController : MonoBehaviour
         {
             if (hit.CompareTag("Tile"))
             {
-                hit.GetComponent<Tile>().RotateClockwise();
-                Object.FindAnyObjectByType<GameManager>().RefreshEnergy();
+                if (hit.GetComponent<Tile>().RotateClockwise())
+                {
+                    EventInstance instance = RuntimeManager.CreateInstance(rotateSound);
+                    instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+                    instance.setVolume(0.05f);
+
+                    instance.start();
+                    instance.release();
+                }
                 break;
             }
         }

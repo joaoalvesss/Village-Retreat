@@ -32,6 +32,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MinigameScene_ZenGarden.unity
     guid: c748744db3d93bb4cb4e157fa857682b
+  - enabled: 1
+    path: Assets/Scenes/CutScene.unity
+    guid: 5dff3cdc94ef8ca46939ad219e76b922
+  - enabled: 1
+    path: Assets/Scenes/FinalMenuUI.unity
+    guid: 4378629d43bcf85419cd51c6188590e7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

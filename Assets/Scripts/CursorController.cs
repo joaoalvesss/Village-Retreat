@@ -9,7 +9,7 @@ public class CursorController : MonoBehaviour
     public KeyCode rotateKey = KeyCode.E;
     public Vector2 heightLimit;
     public Vector2 widthLimit;
-    private string rotateSound = "event:/Minigames/Electricalconnections/rotação";
+    private string rotateSound = "event:/Minigames/Electricalconnections/Moving-chair-around-tile";
 
 public float moveCooldown = 0.2f;
     private float lastMoveTime;
@@ -55,7 +55,7 @@ public float moveCooldown = 0.2f;
                 {
                     EventInstance instance = RuntimeManager.CreateInstance(rotateSound);
                     instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
-                    instance.setVolume(0.05f);
+                    instance.setVolume(0.3f);
 
                     instance.start();
                     instance.release();

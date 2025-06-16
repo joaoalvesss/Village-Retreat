@@ -7,7 +7,7 @@ public class FinalMenuUI : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject mainMenuPanel; 
     public string skipSound = "event:/UI/Skip";
-    public string contSound = "event:/UI/UI_hover";
+    public string contSound = "event:/UI/UI_click_menu_hover";
 
     public void StartGame()
     {

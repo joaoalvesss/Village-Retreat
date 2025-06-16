@@ -37,3 +37,143 @@
 [LOG] SystemI::createSoundInternal             :     Stream 0/1: name='music_animalcrossing1', format=5, channels=2, frequency=48000, lengthbytes=1163360, lengthpcm=4712350, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.427917.
 [LOG] Thread::initThread                       :     Init FMOD file thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFC, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000022574F3F0F8
+[LOG] SoundI::release                          : music_animalcrossing1 (0000022574F3F0F8)
+[LOG] SoundI::release                          :     music_animalcrossing1 (00000225779B6AF8)
+[LOG] SoundI::release                          :     music_animalcrossing1 (00000225C79FE7F8)
+[LOG] SystemI::createSound                     : filename = ../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 0000022667763CC8, queue head = 0000022574F3E5C8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000022667763CC8
+[LOG] SystemI::createSoundInternal             :     Create name='../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 20646112
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 69408
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002266EC69678
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='music_animalcrossing2', format=5, channels=2, frequency=48000, lengthbytes=2447456, lengthpcm=9061632, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.608246.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000022667763CC8
+[LOG] SoundI::release                          : music_animalcrossing2 (0000022667763CC8)
+[LOG] SoundI::release                          :     music_animalcrossing2 (000002263D388808)
+[LOG] SoundI::release                          :     music_animalcrossing2 (0000022574BCF538)
+[LOG] SystemI::createSound                     : filename = ../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002269B513EA8, queue head = 0000022574F3E5C8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002269B513EA8
+[LOG] SystemI::createSoundInternal             :     Create name='../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 20646112
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 69408
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000225C73341C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 25000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='music_animalcrossing3', format=5, channels=2, frequency=48000, lengthbytes=2018784, lengthpcm=7344000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707275.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002269B513EA8
+[LOG] SoundI::release                          : music_animalcrossing3 (000002269B513EA8)
+[LOG] SoundI::release                          :     music_animalcrossing3 (000002263D388388)
+[LOG] SoundI::release                          :     music_animalcrossing3 (0000022574BCFB78)
+[LOG] SystemI::createSound                     : filename = ../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002269B513098, queue head = 0000022574F3E5C8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002269B513098
+[LOG] SystemI::createSoundInternal             :     Create name='../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 20646112
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 69408
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000225C7334488
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Music 01', format=5, channels=2, frequency=48000, lengthbytes=2918848, lengthpcm=10313856, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.692688.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002269B513098
+[LOG] SoundI::release                          : Music 01 (000002269B513098)
+[LOG] SoundI::release                          :     Music 01 (000002263D388508)
+[LOG] SoundI::release                          :     Music 01 (0000022574BCFB78)
+[LOG] SystemI::createSound                     : filename = ../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002269B513228, queue head = 0000022574F3E5C8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002269B513228
+[LOG] SystemI::createSoundInternal             :     Create name='../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 20646112
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 69408
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000225C73341C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Mini 02', format=5, channels=2, frequency=48000, lengthbytes=1212992, lengthpcm=4772736, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.657776.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002269B513228
+[LOG] SoundI::release                          : Mini 02 (000002269B513228)
+[LOG] SoundI::release                          :     Mini 02 (000002263D388388)
+[LOG] SoundI::release                          :     Mini 02 (0000022574BCFE98)
+[LOG] SystemI::createSound                     : filename = ../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002269B513098, queue head = 0000022574F3E5C8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002269B513098
+[LOG] SystemI::createSoundInternal             :     Create name='../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 20646112
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 69408
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000225C73341C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Mini 01', format=5, channels=2, frequency=48000, lengthbytes=2791040, lengthpcm=11457792, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999023.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002269B513098
+[LOG] SoundI::release                          : Mini 01 (000002269B513098)
+[LOG] SoundI::release                          :     Mini 01 (000002263D388388)
+[LOG] SoundI::release                          :     Mini 01 (0000022574BCF538)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 20646112
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 69408
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000E7615DF2F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF91C3DD3E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF91C3DD3A0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF91C3DD4C0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF91C3DD580
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000226EE560E88
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 4
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='music_animalcrossing4', format=5, channels=2, frequency=48000, lengthbytes=117696, lengthpcm=432000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.446228.
+[LOG] SystemI::createSound                     : filename = ../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000002269B513EA8, queue head = 0000022574F3E5C8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002269B513EA8
+[LOG] SystemI::createSoundInternal             :     Create name='../Village Retreat FMOD/Village Retreat/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 20646112
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 69408
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000225C73341C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 25000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='music_animalcrossing3', format=5, channels=2, frequency=48000, lengthbytes=2018784, lengthpcm=7344000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707275.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002269B513EA8
+[LOG] SoundI::release                          : music_animalcrossing3 (000002269B513EA8)
+[LOG] SoundI::release                          :     music_animalcrossing3 (000002263D387F08)
+[LOG] SoundI::release                          :     music_animalcrossing3 (0000022574BCFE98)
+[LOG] SoundI::release                          :  (000002266E7D03B8)
+[LOG] SoundI::release                          :     music_animalcrossing4 (00000225C74CDD78)
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::closeInternal                   : Closed.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.

@@ -51,6 +51,7 @@ public class Home : MonoBehaviour
             UpdateVisual();
             GlobalVariables.Instance.light = 1;
             Object.FindFirstObjectByType<Timer>().StopTimer();
+            FindAnyObjectByType<Timer>().instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             Invoke("winScreen", 3);
         }
     }

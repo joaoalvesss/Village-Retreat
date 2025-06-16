@@ -11,6 +11,8 @@ public class Timer : MonoBehaviour
     public bool isRunning = true;
     private bool entered = false;
 
+    public EventInstance instance;
+
     private string countdown = "event:/Minigames/Electricalconnections/10s_countdown1";
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class Timer : MonoBehaviour
         if (Mathf.FloorToInt(remaningTime) == 9 && !entered)
         {
             entered = true;
-            EventInstance instance = RuntimeManager.CreateInstance(countdown);
+            instance = RuntimeManager.CreateInstance(countdown);
             instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
             instance.setVolume(0.1f);
             instance.start();

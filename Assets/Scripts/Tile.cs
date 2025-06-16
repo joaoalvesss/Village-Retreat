@@ -31,7 +31,7 @@ public class Tile : MonoBehaviour
             {
                 EventInstance instance = RuntimeManager.CreateInstance(electricSound);
                 instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
-                instance.setVolume(0.5f);
+                instance.setVolume(0.3f);
                 instance.start();
                 instance.release();
             }

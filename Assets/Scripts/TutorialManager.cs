@@ -24,7 +24,7 @@ public class TutorialManager : MonoBehaviour
     {
         musicInstance = RuntimeManager.CreateInstance(musicEvent);
         musicInstance.set3DAttributes(RuntimeUtils.To3DAttributes(new Vector3(960, 640, -600)));
-        musicInstance.setVolume(0.35f);
+        musicInstance.setVolume(0.5f);
         musicInstance.start();
 
         tutorialCam.gameObject.SetActive(true);
@@ -49,7 +49,7 @@ public class TutorialManager : MonoBehaviour
         player2Balloon.Hide(image2);
         continuePrompt.SetActive(true);
         var instance = RuntimeManager.CreateInstance(speakSound);
-        instance.setVolume(0.03f);
+        instance.setVolume(0.3f);
         step++;
         switch (step)
         {

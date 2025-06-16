@@ -495,11 +495,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1185518218}
   scoreText: {fileID: 1894368388}
-  maxTime: 180
+  maxTime: 5
   endScreen: {fileID: 1620860647}
   gameScreen: {fileID: 332193735}
   endMessage: {fileID: 1694385549}
-  returnDelay: 30
+  returnDelay: 180
   returnCountdownText: {fileID: 330204946}
   endScreenMusicEvent:
     Guid:

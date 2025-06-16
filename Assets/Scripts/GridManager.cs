@@ -364,7 +364,7 @@ public class GridManager : MonoBehaviour
                 if (DoesPotMatchTarget(potComponent.potType, target.targetType))
                 {
                     var instance = RuntimeManager.CreateInstance(successSound);
-                    instance.setVolume(0.05f); 
+                    instance.setVolume(0.3f); 
                     instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
                     instance.start();
                     instance.release();
@@ -398,7 +398,7 @@ public class GridManager : MonoBehaviour
                 else
                 {
                     var instance = RuntimeManager.CreateInstance(failSound);
-                    instance.setVolume(0.1f); 
+                    instance.setVolume(0.5f); 
                     instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
                     instance.start();
                     instance.release();

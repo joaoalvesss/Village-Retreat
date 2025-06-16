@@ -59,7 +59,7 @@ public class GameManagerPainting : MonoBehaviour
                gameplayMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                gameplayMusicInstance.release();
           }
-          
+
           isRunning = false;
           Debug.Log("Game Over: " + message);
 
@@ -143,7 +143,7 @@ public class GameManagerPainting : MonoBehaviour
           
           gameplayMusicInstance = RuntimeManager.CreateInstance(gameplayMusicEvent);
           gameplayMusicInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
-          gameplayMusicInstance.setVolume(0.01f);
+          gameplayMusicInstance.setVolume(0.05f);
           gameplayMusicInstance.start();
      }
 }

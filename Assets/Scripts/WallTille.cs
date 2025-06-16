@@ -22,7 +22,7 @@ public class WallTile : MonoBehaviour
 
         var instance = RuntimeManager.CreateInstance(paintSound);
         instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
-        instance.setVolume(0.01f);
+        instance.setVolume(0.3f);
         instance.start();
         instance.release(); 
     }

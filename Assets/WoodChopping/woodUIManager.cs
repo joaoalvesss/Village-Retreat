@@ -72,6 +72,8 @@ public class WoodUIManager : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(skipSound, transform.position);
         StopAllCoroutines();
-        SceneManager.LoadScene("Island");
+        if (scoreNum >= 400) GlobalVariables.Instance.wood = 1;
+        if (GlobalVariables.Instance.bush == 1 && GlobalVariables.Instance.wood == 1 && GlobalVariables.Instance.ink == 1 && GlobalVariables.Instance.light == 1) SceneManager.LoadScene("CutScene");
+        else SceneManager.LoadScene("Island");
     }
 }

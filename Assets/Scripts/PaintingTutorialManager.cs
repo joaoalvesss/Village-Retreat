@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class PaintingTutorialManager : MonoBehaviour
 {
@@ -14,9 +15,18 @@ public class PaintingTutorialManager : MonoBehaviour
      public Image image1;
      public Image image2;
      private int step = 0;
+     public EventReference speakSound;
+     public EventReference tutorialMusicEvent;
+     private FMOD.Studio.EventInstance tutorialMusicInstance;
+
 
     void Start()
     {
+          tutorialMusicInstance = RuntimeManager.CreateInstance(tutorialMusicEvent);
+          tutorialMusicInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+          tutorialMusicInstance.setVolume(0.03f);
+          tutorialMusicInstance.start();
+
           tutorialCam.gameObject.SetActive(true);
           tutorialUI.SetActive(true);
           gameplayCam.gameObject.SetActive(false);
@@ -39,26 +49,39 @@ public class PaintingTutorialManager : MonoBehaviour
           player1Balloon.Hide(image1);
           player2Balloon.Hide(image2);
           continuePrompt.SetActive(true);
-
+          var instance = RuntimeManager.CreateInstance(speakSound);
+          instance.setVolume(0.03f);
           step++;
           switch (step)
           {
                case 1:
+                    instance.start();
+                    instance.release();
                     player1Balloon.Show("Welcome to the Painting Room!", image1);
                     break;
                case 2:
+                    instance.start();
+                    instance.release();
                     player2Balloon.Show("Your goal is to match the wall with the pattern on the right!", image2);
                     break;
                case 3:
+                    instance.start();
+                    instance.release();
                     player1Balloon.Show("Move around using WASD or Arrows.", image1);
                     break;
                case 4:
-                    player2Balloon.Show("Press SPACE or ENTER to pick colors from buckets.", image2);
+                    instance.start();
+                    instance.release();
+                    player2Balloon.Show("Press F or ENTER to pick colors from buckets.", image2);
                     break;
                case 5:
+                    instance.start();
+                    instance.release();
                     player1Balloon.Show("Then go to the wall and press your key again to paint!", image1);
                     break;
                case 6:
+                    instance.start();
+                    instance.release();
                     player2Balloon.Show("Work together to complete the pattern before time runs out!", image2);
                     break;
                case 7:
@@ -69,6 +92,12 @@ public class PaintingTutorialManager : MonoBehaviour
 
     public void EndTutorial()
     {
+          if (tutorialMusicInstance.isValid())
+          {
+               tutorialMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+               tutorialMusicInstance.release();
+          }
+
           tutorialCam.gameObject.SetActive(false);
           tutorialUI.SetActive(false);
           gameplayCam.gameObject.SetActive(true);

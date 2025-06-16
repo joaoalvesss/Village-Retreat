@@ -158,6 +158,20 @@ MonoBehaviour:
   continuePrompt: {fileID: 339962882}
   image1: {fileID: 325599205}
   image2: {fileID: 1263145851}
+  speakSound:
+    Guid:
+      Data1: 535948678
+      Data2: 1277518070
+      Data3: 1869117841
+      Data4: 283250658
+    Path: event:/Character/Dialogue
+  tutorialMusicEvent:
+    Guid:
+      Data1: -1681977446
+      Data2: 1222787032
+      Data3: -341474143
+      Data4: 1393851926
+    Path: event:/Music/music_animalcrossing1
 --- !u!4 &64918368
 Transform:
   m_ObjectHideFlags: 0
@@ -481,12 +495,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1185518218}
   scoreText: {fileID: 1894368388}
-  maxTime: 1
+  maxTime: 180
   endScreen: {fileID: 1620860647}
   gameScreen: {fileID: 332193735}
   endMessage: {fileID: 1694385549}
   returnDelay: 30
   returnCountdownText: {fileID: 330204946}
+  endScreenMusicEvent:
+    Guid:
+      Data1: -1356284594
+      Data2: 1156166688
+      Data3: 1006555572
+      Data4: -500204592
+    Path: event:/Music/music 01
+  gameplayMusicEvent:
+    Guid:
+      Data1: 1898820604
+      Data2: 1279276563
+      Data3: -214988405
+      Data4: 525926130
+    Path: event:/Music/music_animalcrossing2
 --- !u!1 &252008769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentColor: {r: 1, g: 0.5254902, b: 0.14117648, a: 0}
   brushColorUI: {fileID: 1726052440}
-  paintKey: 32
+  paintKey: 102
   playerOwner: 0
 --- !u!114 &657186910
 MonoBehaviour:

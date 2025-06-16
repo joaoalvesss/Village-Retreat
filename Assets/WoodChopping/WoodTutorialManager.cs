@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using FMODUnity;
 
 public class WoodTutorialManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class WoodTutorialManager : MonoBehaviour
     public GameObject continuePrompt;
 
     public Image image1;
+    public string skipSound = "event:/UI/Skip";
+    public string contSound = "event:/UI/UI_hover";
 
     private int step = 0;
 
@@ -47,21 +50,28 @@ public class WoodTutorialManager : MonoBehaviour
         {
             case 1:
                 player1Balloon.Show("Welcome to Timber Time!", image1);
+                RuntimeManager.PlayOneShot(contSound, transform.position);
                 break;
             case 2:
                 player1Balloon.Show("Use e/Enter to cut the logs in the correct positions!", image1);
+                RuntimeManager.PlayOneShot(contSound, transform.position);
                 break;
             case 3:
-                player1Balloon.Show("Each completed log grants you 500 points.", image1);
+                player1Balloon.Show("Each completed log grants you 50 points.", image1);
+                RuntimeManager.PlayOneShot(contSound, transform.position);
                 break;
             case 4:
                 player1Balloon.Show("But beware! If you cut a log in the wrong spot, you lose points.", image1);
+                RuntimeManager.PlayOneShot(contSound, transform.position);
                 break; 
             case 5:
-                player1Balloon.Show("Get as many points as you can in 60 seconds!", image1);
+                player1Balloon.Show("Get over 400 points in 60 seconds!", image1);
+                RuntimeManager.PlayOneShot(contSound, transform.position);
                 break;           
             case 6:
                 player1Balloon.Show("Good luck!", image1);
+                break;      
+            case 7:
                 EndTutorial();
                 break;
         }
@@ -69,6 +79,7 @@ public class WoodTutorialManager : MonoBehaviour
 
     public void EndTutorial()
     {
+        RuntimeManager.PlayOneShot(skipSound, transform.position);
         scoreText.gameObject.SetActive(true);
         timerText.gameObject.SetActive(true);
         tutorialCam.gameObject.SetActive(false);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class LogSpawner : MonoBehaviour
 {
@@ -15,11 +16,14 @@ public class LogSpawner : MonoBehaviour
 
     public WoodUIManager uiManager; // assign this in inspector
 
+    public string musicSound = "event:/Music/minigames/Mini 02";
+
     void Start()
     {
         SpawnNewLog();
         uiManager.UpdateScore(score);
         uiManager.UpdateTimer(timeLeft);
+        RuntimeManager.PlayOneShot(musicSound, transform.position);
     }
 
     void Update()

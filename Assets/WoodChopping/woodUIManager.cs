@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
+using FMODUnity;
 
 public class WoodUIManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class WoodUIManager : MonoBehaviour
     public TextMeshProUGUI finalScoreText;
 
     private int scoreNum = 0;
+    public string timeSound = "event:/Music/minigames/countdown_signal";
+    public string skipSound = "event:/UI/Skip";
+    private bool playedTimeSound = false;
 
     public void UpdateScore(int score)
     {
@@ -25,6 +29,11 @@ public class WoodUIManager : MonoBehaviour
     public void UpdateTimer(float timeLeft)
     {
         timerText.text = Mathf.CeilToInt(timeLeft).ToString();
+        if (Mathf.CeilToInt(timeLeft) == 3 && !playedTimeSound) {
+            Debug.Log("3 seconds left!");
+            RuntimeManager.PlayOneShot(timeSound, transform.position);
+            playedTimeSound = true;
+        }
     }
 
     public void ShowGameOver()
@@ -61,6 +70,7 @@ public class WoodUIManager : MonoBehaviour
 
     public void SkipToNextScene()
     {
+        RuntimeManager.PlayOneShot(skipSound, transform.position);
         StopAllCoroutines();
         SceneManager.LoadScene("Island");
     }

@@ -154,6 +154,8 @@ MonoBehaviour:
   winMessageText: {fileID: 821051455}
   countdownText: {fileID: 712328331}
   finalScoreText: {fileID: 2137833062}
+  timeSound: event:/Music/minigames/countdown_signal
+  skipSound: event:/UI/Skip
 --- !u!4 &30882119
 Transform:
   m_ObjectHideFlags: 0
@@ -1356,8 +1358,8 @@ GameObject:
   m_Component:
   - component: {fileID: 616273618}
   - component: {fileID: 616273617}
-  - component: {fileID: 616273616}
   - component: {fileID: 616273619}
+  - component: {fileID: 616273620}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1365,14 +1367,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &616273616
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616273615}
-  m_Enabled: 1
 --- !u!20 &616273617
 Camera:
   m_ObjectHideFlags: 0
@@ -1483,6 +1477,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &616273620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616273615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &618000329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,8 +1761,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5cc9dfc61457de74bb4a243c3ce29886, type: 2}
-  m_sharedMaterial: {fileID: -8004243942204943939, guid: 5cc9dfc61457de74bb4a243c3ce29886, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2658,6 +2666,7 @@ MonoBehaviour:
   timeLeft: 60
   currentLog: {fileID: 0}
   uiManager: {fileID: 30882118}
+  musicSound: event:/Music/minigames/Mini 02
 --- !u!4 &1357632722
 Transform:
   m_ObjectHideFlags: 0
@@ -3472,8 +3481,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1979396524}
   - component: {fileID: 1979396521}
-  - component: {fileID: 1979396523}
   - component: {fileID: 1979396522}
+  - component: {fileID: 1979396525}
   m_Layer: 0
   m_Name: TutorialCamera
   m_TagString: Untagged
@@ -3576,14 +3585,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &1979396523
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979396520}
-  m_Enabled: 1
 --- !u!4 &1979396524
 Transform:
   m_ObjectHideFlags: 0
@@ -3599,6 +3600,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979396525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979396520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &2065919154
 GameObject:
   m_ObjectHideFlags: 0
@@ -3741,6 +3756,8 @@ MonoBehaviour:
   player1Balloon: {fileID: 406665577}
   continuePrompt: {fileID: 329070094}
   image1: {fileID: 1961532103}
+  skipSound: event:/UI/Skip
+  contSound: event:/UI/UI_hover
 --- !u!4 &2073981935
 Transform:
   m_ObjectHideFlags: 0

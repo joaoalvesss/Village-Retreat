@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections;
+using FMODUnity;
+using FMOD.Studio;
 
 public enum Direction
 {
@@ -12,17 +15,28 @@ public class Tile : MonoBehaviour
 {
     public Direction[] openSides;
     public bool IsPowered { get; private set; }
+    private bool isRotating = false;
+    public bool WasPoweredLastFrame { get; internal set; }
+    private string electricSound = "event:/Minigames/Electricalconnections/Electricity";
 
-    public void SetPowered(bool state, int remainingDepth)
+    public void SetPowered(bool state, int remainingDepth, bool fromGenerator = false)
     {
-        bool wasPowered = IsPowered;
         IsPowered = state;
 
-        if (!wasPowered)
-            UpdateVisual();
+        UpdateVisual();
 
         if (IsPowered && remainingDepth > 0)
+        {
+            if (fromGenerator && !WasPoweredLastFrame)
+            {
+                EventInstance instance = RuntimeManager.CreateInstance(electricSound);
+                instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+                instance.setVolume(0.3f);
+                instance.start();
+                instance.release();
+            }
             PropagateEnergy(remainingDepth - 1);
+        }
     }
 
     private void PropagateEnergy(int remainingDepth)
@@ -96,15 +110,40 @@ public class Tile : MonoBehaviour
         };
     }
 
-    public void RotateClockwise()
+    public bool RotateClockwise()
     {
-        transform.Rotate(0, 0, 90f);
+        if (!isRotating)
+        {
+            StartCoroutine(RotateSmoothly());
+            return true;
+        }
+        return false;
+    }
+
+    private IEnumerator RotateSmoothly()
+    {
+        isRotating = true;
+
+        Quaternion startRotation = transform.rotation;
+        Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, 90f);
+        float duration = 0.2f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            transform.rotation = Quaternion.Slerp(startRotation, endRotation, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.rotation = endRotation;
 
         for (int i = 0; i < openSides.Length; i++)
         {
             openSides[i] = RotateDirectionClockwise(openSides[i]);
         }
 
+        isRotating = false;
         FindAnyObjectByType<GameManager>().RefreshEnergy();
     }
 

@@ -597,6 +597,7 @@ GameObject:
   - component: {fileID: 152422309}
   - component: {fileID: 152422308}
   - component: {fileID: 152422307}
+  - component: {fileID: 152422310}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -718,6 +719,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152422305}
   m_CullTransparentMesh: 1
+--- !u!114 &152422310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152422305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31aeb3ebb795cc48a4b010ee9f08717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSoundEvent: event:/UI/UI_hover
 --- !u!1 &195996476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,6 +2474,7 @@ GameObject:
   - component: {fileID: 1169959050}
   - component: {fileID: 1169959049}
   - component: {fileID: 1169959048}
+  - component: {fileID: 1169959051}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -2581,6 +2596,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169959046}
   m_CullTransparentMesh: 1
+--- !u!114 &1169959051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169959046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31aeb3ebb795cc48a4b010ee9f08717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSoundEvent: event:/UI/UI_hover
 --- !u!1 &1248506048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,6 +3359,7 @@ GameObject:
   - component: {fileID: 1572720324}
   - component: {fileID: 1572720323}
   - component: {fileID: 1572720322}
+  - component: {fileID: 1572720325}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -3452,6 +3481,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572720320}
   m_CullTransparentMesh: 1
+--- !u!114 &1572720325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572720320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31aeb3ebb795cc48a4b010ee9f08717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSoundEvent: event:/UI/UI_hover
 --- !u!1 &1637441690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,6 +3808,7 @@ GameObject:
   - component: {fileID: 1829022121}
   - component: {fileID: 1829022120}
   - component: {fileID: 1829022119}
+  - component: {fileID: 1829022122}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -3887,6 +3930,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829022117}
   m_CullTransparentMesh: 1
+--- !u!114 &1829022122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829022117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31aeb3ebb795cc48a4b010ee9f08717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSoundEvent: event:/UI/UI_hover
 --- !u!1 &1889672943
 GameObject:
   m_ObjectHideFlags: 0
@@ -4943,6 +4999,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsPanel: {fileID: 617489000}
   mainMenuPanel: {fileID: 33957525}
+  skipSound: event:/UI/Skip
+  contSound: event:/UI/UI_click_menu_hover
 --- !u!1 &2143926808
 GameObject:
   m_ObjectHideFlags: 0

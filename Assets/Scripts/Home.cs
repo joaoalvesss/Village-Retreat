@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using FMODUnity;
+using FMOD.Studio;
 
 public class Home : MonoBehaviour
 {
@@ -8,6 +10,12 @@ public class Home : MonoBehaviour
     public GameObject winPanel;
     public TextMeshProUGUI winMessageText;
     public TextMeshProUGUI countdownText;
+
+    private string winSound = "event:/Minigames/Success";
+    private string loseSound = "event:/Minigames/Failure";
+    private string endMusic = "event:/Music/minigames/Mini 02";
+
+    private EventInstance instance;
 
     public void Check()
     {
@@ -31,7 +39,6 @@ public class Home : MonoBehaviour
                 Component neighbor = GetConnectableAtDirection(tile.transform.position, dir);
                 if (neighbor == null)
                 {
-                    Debug.LogWarning("neighbor " + neighbor + " tile " + tile + " pos " + tile.transform.position + " dir " + dir);
                     allTilesValid = false;
                     break;
                 }
@@ -42,7 +49,9 @@ public class Home : MonoBehaviour
         if (allTilesValid)
         {
             UpdateVisual();
-            FindObjectOfType<Timer>().StopTimer();
+            GlobalVariables.Instance.light = 1;
+            Object.FindFirstObjectByType<Timer>().StopTimer();
+            FindAnyObjectByType<Timer>().instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             Invoke("winScreen", 3);
         }
     }
@@ -64,6 +73,17 @@ public class Home : MonoBehaviour
     {
         if (winPanel != null)
         {
+            FindAnyObjectByType<TutorialManagerElectrical>().instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            instance = RuntimeManager.CreateInstance(winSound);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            instance.setVolume(0.2f);
+            instance.start();
+            instance.release();
+            instance = RuntimeManager.CreateInstance(endMusic);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            instance.setVolume(0.05f);
+            instance.start();
+            instance.release();
             winPanel.SetActive(true);
             if (winMessageText != null) winMessageText.text = "YOU WON!";
             StartCoroutine(CountdownToNextScene());
@@ -74,6 +94,17 @@ public class Home : MonoBehaviour
     {
         if (winPanel != null)
         {
+            FindAnyObjectByType<TutorialManagerElectrical>().instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            instance = RuntimeManager.CreateInstance(loseSound);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            instance.setVolume(0.2f);
+            instance.start();
+            instance.release();
+            instance = RuntimeManager.CreateInstance(endMusic);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            instance.setVolume(0.05f);
+            instance.start();
+            instance.release();
             winPanel.SetActive(true);
             if (winMessageText != null) winMessageText.text = "GAME OVER!";
             StartCoroutine(CountdownToNextScene());
@@ -82,7 +113,9 @@ public class Home : MonoBehaviour
 
     private void changeScene()
     {
-        SceneManager.LoadScene("Island", LoadSceneMode.Single);
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        if (GlobalVariables.Instance.bush == 1 && GlobalVariables.Instance.wood == 1 && GlobalVariables.Instance.ink == 1 && GlobalVariables.Instance.light == 1) SceneManager.LoadScene("CutScene");
+        else SceneManager.LoadScene("Island", LoadSceneMode.Single);
     }
 
     private Tile GetAdjacentTile(Direction dir)

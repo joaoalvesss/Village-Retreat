@@ -85,8 +85,6 @@ public class TutorialManager : MonoBehaviour
                 player2Balloon.Show("But be careful... water will destroy your pots!", image2);
                 break;
             case 7:
-                instance.start();
-                instance.release();
                 player1Balloon.Show("Get more points by placing pots quickly and correctly!", image1);
                 EndTutorial();
                 break;

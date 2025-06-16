@@ -11756,11 +11756,18 @@ MonoBehaviour:
   whiteOnGreenTimes: []
   timerSound:
     Guid:
-      Data1: -1096587043
-      Data2: 1162251115
-      Data3: 1371158158
-      Data4: -1320506188
-    Path: event:/Music/music_animalcrossing3
+      Data1: -1434670495
+      Data2: 1209575854
+      Data3: 115573950
+      Data4: 410668505
+    Path: event:/Music/minigames/Mini 02
+  winMusicEvent:
+    Guid:
+      Data1: 1898820604
+      Data2: 1279276563
+      Data3: -214988405
+      Data4: 525926130
+    Path: event:/Music/music_animalcrossing2
 --- !u!1001 &1502276549
 PrefabInstance:
   m_ObjectHideFlags: 0

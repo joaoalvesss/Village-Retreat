@@ -18,20 +18,20 @@ public class Pot : MonoBehaviour
     }
 
     public void CheckForDestruction()
-{
-    if (gridManager.GetTileType(gridPos) == TileType.Water)
-    {   
-        FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(waterDropEvent);
-        instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
-        instance.setVolume(0.05f); 
-        instance.start();
-        instance.release(); 
+    {
+        if (gridManager.GetTileType(gridPos) == TileType.Water)
+        {   
+            FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(waterDropEvent);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            instance.setVolume(0.05f); 
+            instance.start();
+            instance.release(); 
 
-        GameManagerZenGarden.Instance.ShowPotDestroyedMessage(); 
-        gridManager.potPositions.Remove(gridPos);
-        Destroy(gameObject);
+            GameManagerZenGarden.Instance.ShowPotDestroyedMessage(); 
+            gridManager.potPositions.Remove(gridPos);
+            Destroy(gameObject);
+        }
     }
-}
 
     public bool IsOnTarget()
     {

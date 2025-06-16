@@ -25,8 +25,8 @@ public class GameManagerZenGarden : MonoBehaviour
     public List<float> whiteOnGreenTimes = new();
     public EventReference timerSound;
     private FMOD.Studio.EventInstance timerSoundInstance;
-
-
+    public EventReference winMusicEvent;
+    private FMOD.Studio.EventInstance winMusicInstance;
 
     void Start()
     {
@@ -84,7 +84,7 @@ public class GameManagerZenGarden : MonoBehaviour
 
         timerSoundInstance = RuntimeManager.CreateInstance(timerSound);
         timerSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
-        timerSoundInstance.setVolume(0.04f); 
+        timerSoundInstance.setVolume(0.01f); 
         timerSoundInstance.start();
     }
 
@@ -103,6 +103,12 @@ public class GameManagerZenGarden : MonoBehaviour
             }
 
             winPanel.SetActive(true);
+
+            winMusicInstance = RuntimeManager.CreateInstance(winMusicEvent);
+            winMusicInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            winMusicInstance.setVolume(0.01f);
+            winMusicInstance.start();
+
             if (winMessageText != null)
                 winMessageText.text = "GAME ENDED!";
 
@@ -189,6 +195,7 @@ public class GameManagerZenGarden : MonoBehaviour
         if (winPanel != null)
         {
             GlobalVariables.Instance.bush = 1;
+
             AddScore(100); 
             AwardTimeBonus(); 
             if (timerSoundInstance.isValid())
@@ -197,6 +204,12 @@ public class GameManagerZenGarden : MonoBehaviour
                 timerSoundInstance.release();
             }
             winPanel.SetActive(true);
+
+            winMusicInstance = RuntimeManager.CreateInstance(winMusicEvent);
+            winMusicInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            winMusicInstance.setVolume(0.01f);
+            winMusicInstance.start();
+
             if (winMessageText != null) winMessageText.text = "YOU WON!";
             if (finalScoreText != null) finalScoreText.text = "FINAL SCORE : " + score;
             StartCoroutine(CountdownToNextScene());
@@ -218,7 +231,22 @@ public class GameManagerZenGarden : MonoBehaviour
 
     void LoadNextScene()
     {
-        SceneManager.LoadScene("Island");
+        if (winMusicInstance.isValid())
+        {
+            winMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            winMusicInstance.release();
+        }
+
+        if (GlobalVariables.Instance.bush == 1 && GlobalVariables.Instance.wood == 1 && GlobalVariables.Instance.ink == 1 && GlobalVariables.Instance.light == 1)
+        {
+            SceneManager.LoadScene("CutScene");
+        }
+
+        else
+        {
+            SceneManager.LoadScene("Island");
+        }
+
     }
 
     public void ResetTimer()

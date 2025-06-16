@@ -56,9 +56,11 @@ public class NPCInteraction : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
                 {
                     player1Ready = true;
-                    player1PromptText.text = "Esperando o segundo jogador...\n(Press ESC para sair)";
+                    player1PromptText.text = "Waiting for the second player...\n(Press ESC to exit)";
                     NPCAnimator.SetBool("isTalking", true);
                     player1Animator.SetBool("isTalking", true);
+                    player1Animator.SetTrigger("triggerTalk");
+
                 }
             }
             else
@@ -124,6 +126,7 @@ public class NPCInteraction : MonoBehaviour
                     player2PromptText.text = "Waiting for the second player...\n(Press Backspace to exit)";
                     NPCAnimator.SetBool("isTalking", true);
                     player2Animator.SetBool("isTalking", true);
+                    player2Animator.SetTrigger("triggerTalk");
                 }
             }
             else

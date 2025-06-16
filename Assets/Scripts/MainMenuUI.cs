@@ -11,11 +11,6 @@ public class MainMenuUI : MonoBehaviour
         SceneManager.LoadScene("Island");
     }
 
-    public void OpenCharacterSelect()
-    {
-        SceneManager.LoadScene("CharacterSelectScene");
-    }
-
     public void OpenOptions()
     {
         optionsPanel.SetActive(true);

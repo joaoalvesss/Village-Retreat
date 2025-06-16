@@ -6,7 +6,7 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 playerVelocity;
     private bool isGrounded;
 
-    public float jumpHeight = 1.5f;
+    public float jumpHeight = 0.1f;
     public float speed = 15f;
     public float gravity = -9.8f;
     public float groundCheckDistance = 0.5f; // Distância para verificar o chão à frente
@@ -79,7 +79,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (isGrounded)
         {
-            playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+            playerVelocity.y = Mathf.Sqrt(jumpHeight * -1.5f * gravity);
             animController.TriggerJump();
         }
     }

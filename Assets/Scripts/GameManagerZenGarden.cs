@@ -89,7 +89,7 @@ public class GameManagerZenGarden : MonoBehaviour
         {
             winPanel.SetActive(true);
             if (winMessageText != null)
-                winMessageText.text = "GAME ENDEDED!";
+                winMessageText.text = "GAME ENDED!";
 
             if (finalScoreText != null)
                 finalScoreText.text = "FINAL SCORE : " + score;

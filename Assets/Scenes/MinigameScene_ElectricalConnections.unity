@@ -8366,7 +8366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 572921700}
-  remaningTime: 120
+  remaningTime: 60
   isRunning: 1
 --- !u!1 &572921698
 GameObject:
@@ -10748,7 +10748,7 @@ MonoBehaviour:
   placements:
   - tileName: Tile_line1
     position: {x: -5, y: 5, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_line2
     position: {x: -3, y: 6, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
@@ -10766,7 +10766,7 @@ MonoBehaviour:
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_corner2
     position: {x: -5, y: 7, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_corner3
     position: {x: -3, y: 5, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
@@ -10778,25 +10778,25 @@ MonoBehaviour:
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_split3
     position: {x: -3, y: 7, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_end1
     position: {x: -5, y: 2, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_end2
     position: {x: -4, y: 6, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_end3
     position: {x: -4, y: 5, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_end4
     position: {x: -4, y: 4, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_corner4
     position: {x: -3, y: 3, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_corner5
     position: {x: -3, y: 2, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_line6
     position: {x: -3, y: 4, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
@@ -10808,19 +10808,19 @@ MonoBehaviour:
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_corner6
     position: {x: -2, y: 6, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_corner7
     position: {x: -2, y: 5, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_corner8
     position: {x: -2, y: 4, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_corner9
     position: {x: -2, y: 2, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_corner10
     position: {x: -1, y: 7, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_corner11
     position: {x: -1, y: 6, z: -3}
     rotationEuler: {x: 0, y: 0, z: 180}
@@ -10874,13 +10874,13 @@ MonoBehaviour:
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_split9
     position: {x: 2, y: 7, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_line11
     position: {x: 2, y: 6, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_line12
     position: {x: 2, y: 5, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_corner18
     position: {x: 2, y: 4, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
@@ -10898,7 +10898,7 @@ MonoBehaviour:
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_line13
     position: {x: 3, y: 6, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_end8
     position: {x: 3, y: 5, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
@@ -10910,19 +10910,19 @@ MonoBehaviour:
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_split12
     position: {x: 4, y: 7, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_corner24
     position: {x: 4, y: 2, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_line14
     position: {x: 4, y: 6, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_line15
     position: {x: 4, y: 4, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}
   - tileName: Tile_line16
     position: {x: 4, y: 3, z: -3}
-    rotationEuler: {x: 0, y: 0, z: 0}
+    rotationEuler: {x: 0, y: 0, z: 90}
   - tileName: Tile_split11
     position: {x: 4, y: 5, z: -3}
     rotationEuler: {x: 0, y: 0, z: 0}

@@ -401,7 +401,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2537,7 +2537,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3114,7 +3114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9bdd3e4913f6e7b4e850381c73b172fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72b42a0dcead0804b8f82b3a7312e4d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3401,6 +3401,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 17
   height: 13
+  successSound:
+    Guid:
+      Data1: 1236977151
+      Data2: 1271728396
+      Data3: 1730219924
+      Data4: -1612328248
+    Path: event:/Minigames/Success
+  failSound:
+    Guid:
+      Data1: 1933901509
+      Data2: 1249093880
+      Data3: -2072199547
+      Data4: -1930600790
+    Path: event:/Minigames/Failure
 --- !u!1 &474739636
 GameObject:
   m_ObjectHideFlags: 0
@@ -5018,6 +5032,20 @@ MonoBehaviour:
   continuePrompt: {fileID: 1069473797}
   image1: {fileID: 170595413}
   image2: {fileID: 93107088}
+  musicEvent:
+    Guid:
+      Data1: 1261637683
+      Data2: 1111335855
+      Data3: -818324850
+      Data4: 1445585588
+    Path: event:/Ambience/ambience_wind_birds_leaves
+  speakSound:
+    Guid:
+      Data1: 535948678
+      Data2: 1277518070
+      Data3: 1869117841
+      Data4: 283250658
+    Path: event:/Character/Dialogue
 --- !u!4 &669510901
 Transform:
   m_ObjectHideFlags: 0
@@ -6181,7 +6209,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6520,6 +6548,26 @@ PrefabInstance:
     - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
       propertyPath: gridPos.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Path
+      value: event:/Minigames/Zengarden/Dropping water
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data1
+      value: 1741410819
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data2
+      value: 1203171793
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data3
+      value: -2000814935
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data4
+      value: 1153895864
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7203,7 +7251,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7631,7 +7679,7 @@ MonoBehaviour:
   m_text: GO BACK TO ISLAND
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7857,8 +7905,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1066267692}
   - component: {fileID: 1066267691}
-  - component: {fileID: 1066267690}
   - component: {fileID: 1066267693}
+  - component: {fileID: 1066267694}
   m_Layer: 0
   m_Name: GameplayCamera
   m_TagString: MainCamera
@@ -7866,14 +7914,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1066267690
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066267689}
-  m_Enabled: 1
 --- !u!20 &1066267691
 Camera:
   m_ObjectHideFlags: 0
@@ -7984,6 +8024,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1066267694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066267689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1001 &1066541582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10069,6 +10123,26 @@ PrefabInstance:
       propertyPath: gridPos.y
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Path
+      value: event:/Minigames/Zengarden/Dropping water
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data1
+      value: 1741410819
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data2
+      value: 1203171793
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data3
+      value: -2000814935
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data4
+      value: 1153895864
+      objectReference: {fileID: 0}
     - target: {fileID: 3082649311396382761, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
       propertyPath: m_Name
       value: BushTile
@@ -10595,6 +10669,26 @@ PrefabInstance:
     - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
       propertyPath: gridPos.y
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Path
+      value: event:/Minigames/Zengarden/Dropping water
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data1
+      value: 1741410819
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data2
+      value: 1203171793
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data3
+      value: -2000814935
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data4
+      value: 1153895864
       objectReference: {fileID: 0}
     - target: {fileID: 3082649311396382761, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
       propertyPath: m_Name
@@ -11660,6 +11754,20 @@ MonoBehaviour:
   finalScoreText: {fileID: 359717055}
   giveUpButton: {fileID: 498624569}
   whiteOnGreenTimes: []
+  timerSound:
+    Guid:
+      Data1: -1434670495
+      Data2: 1209575854
+      Data3: 115573950
+      Data4: 410668505
+    Path: event:/Music/minigames/Mini 02
+  winMusicEvent:
+    Guid:
+      Data1: 1898820604
+      Data2: 1279276563
+      Data3: -214988405
+      Data4: 525926130
+    Path: event:/Music/music_animalcrossing2
 --- !u!1001 &1502276549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12765,6 +12873,26 @@ PrefabInstance:
       propertyPath: gridPos.y
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Path
+      value: event:/Minigames/Zengarden/Dropping water
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data1
+      value: 1741410819
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data2
+      value: 1203171793
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data3
+      value: -2000814935
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data4
+      value: 1153895864
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12854,8 +12982,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1625316791}
   - component: {fileID: 1625316788}
-  - component: {fileID: 1625316790}
   - component: {fileID: 1625316789}
+  - component: {fileID: 1625316792}
   m_Layer: 0
   m_Name: TutorialCamera
   m_TagString: Untagged
@@ -12958,14 +13086,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &1625316790
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625316787}
-  m_Enabled: 1
 --- !u!4 &1625316791
 Transform:
   m_ObjectHideFlags: 0
@@ -12981,6 +13101,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1625316792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625316787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1001 &1627866821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14001,8 +14135,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e63f4c5629de65b40893b3795df75b79, type: 2}
-  m_sharedMaterial: {fileID: 1392940770358087540, guid: e63f4c5629de65b40893b3795df75b79, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4db22423784a9c74a8932074ef3904dc, type: 2}
+  m_sharedMaterial: {fileID: -8004243942204943939, guid: 4db22423784a9c74a8932074ef3904dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14615,7 +14749,7 @@ MonoBehaviour:
   m_text: skip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15000,6 +15134,26 @@ PrefabInstance:
       propertyPath: gridPos.y
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Path
+      value: event:/Minigames/Zengarden/Dropping water
+      objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Guid.Data1
+      value: 1741410819
+      objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Guid.Data2
+      value: 1203171793
+      objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Guid.Data3
+      value: -2000814935
+      objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Guid.Data4
+      value: 1153895864
+      objectReference: {fileID: 0}
     - target: {fileID: 2005716636887736262, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.75
@@ -15250,7 +15404,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15553,7 +15707,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16767,7 +16921,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17268,7 +17422,7 @@ MonoBehaviour:
   m_text: press space to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: -2213785956044959196, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18493,6 +18647,26 @@ PrefabInstance:
     - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
       propertyPath: gridPos.y
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Path
+      value: event:/Minigames/Zengarden/Dropping water
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data1
+      value: 1741410819
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data2
+      value: 1203171793
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data3
+      value: -2000814935
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446507383049443496, guid: c0922520b3beb5c42aac6f97a0f9fddb, type: 3}
+      propertyPath: waterDropEvent.Guid.Data4
+      value: 1153895864
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19825,6 +19999,26 @@ PrefabInstance:
       propertyPath: gridPos.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Path
+      value: event:/Minigames/Zengarden/Dropping water
+      objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Guid.Data1
+      value: 1741410819
+      objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Guid.Data2
+      value: 1203171793
+      objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Guid.Data3
+      value: -2000814935
+      objectReference: {fileID: 0}
+    - target: {fileID: -1883434846238261987, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
+      propertyPath: waterDropEvent.Guid.Data4
+      value: 1153895864
+      objectReference: {fileID: 0}
     - target: {fileID: 2005716636887736262, guid: 17c2f14e0c4c3a2498aa485522e22b39, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.75
@@ -20090,6 +20284,26 @@ PrefabInstance:
     - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
       propertyPath: gridPos.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Path
+      value: event:/Minigames/Zengarden/Dropping water
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data1
+      value: 1741410819
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data2
+      value: 1203171793
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data3
+      value: -2000814935
+      objectReference: {fileID: 0}
+    - target: {fileID: -6009990323920003632, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
+      propertyPath: waterDropEvent.Guid.Data4
+      value: 1153895864
       objectReference: {fileID: 0}
     - target: {fileID: 3082649311396382761, guid: f1d8f9451ef48fd47aa79f18fd45e12b, type: 3}
       propertyPath: m_Name

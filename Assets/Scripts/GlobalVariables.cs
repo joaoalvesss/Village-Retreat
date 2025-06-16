@@ -4,7 +4,7 @@ public class GlobalVariables : MonoBehaviour
 {
     public static GlobalVariables Instance;
 
-    // Variáveis globais
+    // Variï¿½veis globais
     public int wood = 0;
     public int light = 0;
     public int ink = 0;

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using FMODUnity;
 
 public class LogController : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class LogController : MonoBehaviour
 
     private List<float> leftCutPoints = new List<float>();
     private List<float> rightCutPoints = new List<float>();
+
+    public string cutSound = "event:/Minigames/Woodchopping/cortar_madeira1";
+    public string successSound = "event:/Minigames/Success";
+    public string failureSound = "event:/Minigames/Failure";
 
     GameObject FindInactiveObjectByName(string name)
     {
@@ -146,6 +151,7 @@ public class LogController : MonoBehaviour
 
     public void CutAtPosition(float x, int playerId)
     {
+        RuntimeManager.PlayOneShot(cutSound, transform.position);
         Quaternion rotation = Quaternion.Euler(90f, 180f, 0f);
         Debug.Log($"Player {playerId} is trying to cut a log!");
         List<float> side = playerId == 1 ? leftCutPoints : rightCutPoints;
@@ -167,9 +173,10 @@ public class LogController : MonoBehaviour
         }
 
         Debug.Log($"Player {playerId} missed the cut!");
+        RuntimeManager.PlayOneShot(failureSound, transform.position);
         GameObject cutMade2 = Instantiate(cutPrefab, new Vector3(x, -2f, -0.015f), rotation, transform);
         cutMade2.transform.localScale = new Vector3(0.045f, 1f, 0.988f);
-        spawner.AddScore(-100);
+        spawner.AddScore(-10);
 
         StartCoroutine(FallAndDestroy());
     }
@@ -179,7 +186,8 @@ public class LogController : MonoBehaviour
         if (leftCutPoints.Count == 0 && rightCutPoints.Count == 0)
         {
             Debug.Log("Log fully chopped!");
-            spawner.AddScore(500);
+            spawner.AddScore(50);
+            RuntimeManager.PlayOneShot(successSound, transform.position);
             // You could start a fall animation or spawn the next log here
             StartCoroutine(FallAndDestroy());
         }

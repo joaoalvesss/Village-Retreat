@@ -481,7 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1185518218}
   scoreText: {fileID: 1894368388}
-  maxTime: 1
+  maxTime: 180
   endScreen: {fileID: 1620860647}
   gameScreen: {fileID: 332193735}
   endMessage: {fileID: 1694385549}

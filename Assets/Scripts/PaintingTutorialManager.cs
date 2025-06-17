@@ -10,10 +10,8 @@ public class PaintingTutorialManager : MonoBehaviour
      public GameObject gameplayUI;
      public GameObject gameplayUI2;
      public SpeechBalloon player1Balloon;
-     public SpeechBalloon player2Balloon;
      public GameObject continuePrompt;
      public Image image1;
-     public Image image2;
      private int step = 0;
      public EventReference speakSound;
      public EventReference tutorialMusicEvent;
@@ -47,7 +45,6 @@ public class PaintingTutorialManager : MonoBehaviour
     void ShowNextStep()
     {
           player1Balloon.Hide(image1);
-          player2Balloon.Hide(image2);
           continuePrompt.SetActive(true);
           var instance = RuntimeManager.CreateInstance(speakSound);
           instance.setVolume(0.3f);
@@ -62,7 +59,7 @@ public class PaintingTutorialManager : MonoBehaviour
                case 2:
                     instance.start();
                     instance.release();
-                    player2Balloon.Show("Your goal is to match the wall with the pattern on the right!", image2);
+                    player1Balloon.Show("Your goal is to match the wall with the pattern on the right!", image1);
                     break;
                case 3:
                     instance.start();
@@ -72,7 +69,7 @@ public class PaintingTutorialManager : MonoBehaviour
                case 4:
                     instance.start();
                     instance.release();
-                    player2Balloon.Show("Press F or ENTER to pick colors from buckets.", image2);
+                    player1Balloon.Show("Press F or ENTER to pick colors from buckets.", image1);
                     break;
                case 5:
                     instance.start();
@@ -82,7 +79,7 @@ public class PaintingTutorialManager : MonoBehaviour
                case 6:
                     instance.start();
                     instance.release();
-                    player2Balloon.Show("Work together to complete the pattern before time runs out!", image2);
+                    player1Balloon.Show("Work together to complete the pattern before time runs out!", image1);
                     break;
                case 7:
                     EndTutorial();

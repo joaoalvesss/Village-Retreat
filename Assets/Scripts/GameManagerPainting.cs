@@ -1,6 +1,9 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
+
 
 public class GameManagerPainting : MonoBehaviour
 {
@@ -16,6 +19,10 @@ public class GameManagerPainting : MonoBehaviour
      public float returnDelay = 30f;
      private float returnTimer;
      public TextMeshProUGUI returnCountdownText;
+     public EventReference endScreenMusicEvent;
+     private FMOD.Studio.EventInstance endScreenMusicInstance;
+     public EventReference gameplayMusicEvent;
+     private FMOD.Studio.EventInstance gameplayMusicInstance;
 
      void Start()
      {
@@ -47,15 +54,32 @@ public class GameManagerPainting : MonoBehaviour
 
      public void EndGame(string message = "Time's up!")
      {
+          if (gameplayMusicInstance.isValid())
+          {
+               gameplayMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+               gameplayMusicInstance.release();
+          }
+
           isRunning = false;
           Debug.Log("Game Over: " + message);
 
           if (endScreen != null)
           {
+               endScreenMusicInstance = RuntimeManager.CreateInstance(endScreenMusicEvent);
+               endScreenMusicInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+               endScreenMusicInstance.setVolume(0.01f);
+               endScreenMusicInstance.start();
+
                gameScreen.SetActive(false);
                endScreen.SetActive(true);
+
                if (endMessage != null)
+               {
                     endMessage.text = message;
+
+                    if (message != "Time's up!")
+                         GlobalVariables.Instance.ink = 1;
+               }
 
                returnTimer = returnDelay;
                InvokeRepeating(nameof(UpdateReturnCountdown), 0f, 1f);
@@ -81,10 +105,25 @@ public class GameManagerPainting : MonoBehaviour
           LoadMainMenu();
      }
 
-     void LoadMainMenu()
-     {
-          SceneManager.LoadScene("Island");
-     }
+    void LoadMainMenu()
+    {
+          if (endScreenMusicInstance.isValid())
+          {
+               endScreenMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+               endScreenMusicInstance.release();
+          }
+
+          if (GlobalVariables.Instance.bush == 1 && GlobalVariables.Instance.wood == 1 && GlobalVariables.Instance.ink == 1 && GlobalVariables.Instance.light == 1)
+          {
+               SceneManager.LoadScene("CutScene");
+          }
+
+          else
+          {
+               SceneManager.LoadScene("Island");
+          }
+
+    }
 
      public void AddScore(int value)
      {
@@ -97,9 +136,14 @@ public class GameManagerPainting : MonoBehaviour
           if (scoreText != null)
                scoreText.text = $"< SCORE > \n {score}";
      }
-     
+
      public void StartTimer()
      {
-     isRunning = true;
+          isRunning = true;
+          
+          gameplayMusicInstance = RuntimeManager.CreateInstance(gameplayMusicEvent);
+          gameplayMusicInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+          gameplayMusicInstance.setVolume(0.05f);
+          gameplayMusicInstance.start();
      }
 }

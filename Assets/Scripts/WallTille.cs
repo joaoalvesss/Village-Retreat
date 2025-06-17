@@ -1,10 +1,13 @@
 using UnityEngine;
+using FMODUnity;
 
 public class WallTile : MonoBehaviour
 {
     public Color targetColor;
     public Color currentColor;
     private Renderer rend;
+    public EventReference paintSound;
+
 
     void Start()
     {
@@ -16,6 +19,12 @@ public class WallTile : MonoBehaviour
     {
         currentColor = color;
         UpdateVisual();
+
+        var instance = RuntimeManager.CreateInstance(paintSound);
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+        instance.setVolume(0.3f);
+        instance.start();
+        instance.release(); 
     }
 
     public void Clean()

@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using FMODUnity;
+
 
 public enum TileType { Empty, Wall, Target, Ground, Water }
 
@@ -10,7 +12,8 @@ public class GridManager : MonoBehaviour
 
     public Dictionary<Vector2Int, GameObject> potPositions = new();
     private List<Vector2Int> allTargets = new();
-
+    public EventReference successSound;
+    public EventReference failSound;
 
     void Awake()
     {
@@ -360,6 +363,11 @@ public class GridManager : MonoBehaviour
                 var gameManager = GameManagerZenGarden.Instance;
                 if (DoesPotMatchTarget(potComponent.potType, target.targetType))
                 {
+                    var instance = RuntimeManager.CreateInstance(successSound);
+                    instance.setVolume(0.3f); 
+                    instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+                    instance.start();
+                    instance.release();
                     if (!gameManager.alreadyScored.Contains(to))
                     {
                         if (potComponent.potType == PotType.White && target.targetType == TargetType.Green)
@@ -384,12 +392,16 @@ public class GridManager : MonoBehaviour
                         {
                             gameManager.AddScore(10);
                         }
-
                         gameManager.alreadyScored.Add(to);
                     }
                 }
                 else
                 {
+                    var instance = RuntimeManager.CreateInstance(failSound);
+                    instance.setVolume(0.5f); 
+                    instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+                    instance.start();
+                    instance.release();
                     gameManager.SubtractScore(5);
                     gameManager.ShowFeedback("Wrong pot on target!");
                 }

@@ -4100,8 +4100,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Built with love by Team F!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5cc9dfc61457de74bb4a243c3ce29886, type: 2}
-  m_sharedMaterial: {fileID: -8004243942204943939, guid: 5cc9dfc61457de74bb4a243c3ce29886, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4db22423784a9c74a8932074ef3904dc, type: 2}
+  m_sharedMaterial: {fileID: -8004243942204943939, guid: 4db22423784a9c74a8932074ef3904dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

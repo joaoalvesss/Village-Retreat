@@ -1,4 +1,6 @@
 using UnityEngine;
+using FMODUnity;
+
 
 public enum PotType { LightGreen, DarkGreen, White }
 
@@ -7,8 +9,8 @@ public class Pot : MonoBehaviour
 
     public PotType potType;
     public Vector2Int gridPos;
-
     private GridManager gridManager;
+    public EventReference waterDropEvent;
 
     void Start()
     {
@@ -16,14 +18,20 @@ public class Pot : MonoBehaviour
     }
 
     public void CheckForDestruction()
-{
-    if (gridManager.GetTileType(gridPos) == TileType.Water)
     {
-        GameManagerZenGarden.Instance.ShowPotDestroyedMessage(); 
-        gridManager.potPositions.Remove(gridPos);
-        Destroy(gameObject);
+        if (gridManager.GetTileType(gridPos) == TileType.Water)
+        {   
+            FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(waterDropEvent);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            instance.setVolume(0.3f); 
+            instance.start();
+            instance.release(); 
+
+            GameManagerZenGarden.Instance.ShowPotDestroyedMessage(); 
+            gridManager.potPositions.Remove(gridPos);
+            Destroy(gameObject);
+        }
     }
-}
 
     public bool IsOnTarget()
     {

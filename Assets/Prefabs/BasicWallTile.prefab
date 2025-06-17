@@ -123,3 +123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetColor: {r: 1, g: 1, b: 1, a: 0}
   currentColor: {r: 1, g: 1, b: 1, a: 0}
+  paintSound:
+    Guid:
+      Data1: 404202591
+      Data2: 1198317857
+      Data3: 234017419
+      Data4: 1396758098
+    Path: event:/UI/UI_hover

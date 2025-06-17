@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using FMODUnity;
+using FMOD.Studio;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class MainMenuUI : MonoBehaviour
     public GameObject mainMenuPanel; 
     public string skipSound = "event:/UI/Skip";
     public string contSound = "event:/UI/UI_click_menu_hover";
+    public string background = "event:/Ambience/ambience_wind_birds_leaves";
+    private bool start = true;
+
+    private EventInstance instance;
 
     public void StartGame()
     {
@@ -39,5 +44,25 @@ public class MainMenuUI : MonoBehaviour
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+
+    void Update()
+    {
+        if (start)
+        {
+            instance = RuntimeManager.CreateInstance(background);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            instance.setVolume(0.5f);
+            instance.start();
+            instance.release();
+            start = false;
+        }
+        FMOD.Studio.PLAYBACK_STATE playbackState;
+        instance.getPlaybackState(out playbackState);
+
+        if (playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED)
+        {
+            instance.start();
+        }
     }
 }

@@ -95,6 +95,7 @@ public class Home : MonoBehaviour
         if (winPanel != null)
         {
             FindAnyObjectByType<TutorialManagerElectrical>().instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            FindAnyObjectByType<Timer>().instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             instance = RuntimeManager.CreateInstance(loseSound);
             instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
             instance.setVolume(0.2f);

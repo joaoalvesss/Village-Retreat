@@ -261,4 +261,20 @@ public class GameManagerZenGarden : MonoBehaviour
         LoadNextScene();
     }
 
+    public void RestartGame()
+    {
+        if (winMusicInstance.isValid())
+        {
+            winMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            winMusicInstance.release();
+        }
+
+        if (timerSoundInstance.isValid())
+        {
+            timerSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            timerSoundInstance.release();
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

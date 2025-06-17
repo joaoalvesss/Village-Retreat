@@ -81,7 +81,7 @@ public class TutorialManagerElectrical : MonoBehaviour
                 instance2.start();
                 break;
             case 2:
-                player2Balloon.Show("Rotate the cables to guide the power to the house!", image2);
+                player2Balloon.Show("Rotate the cables with Enter and E to guide the power to the house!", image2);
                 instance2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 instance2.start();
                 break;

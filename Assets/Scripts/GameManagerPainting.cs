@@ -146,4 +146,9 @@ public class GameManagerPainting : MonoBehaviour
           gameplayMusicInstance.setVolume(0.05f);
           gameplayMusicInstance.start();
      }
+
+    public void Surrender()
+    {
+        EndGame("Surrender!");
+    }
 }

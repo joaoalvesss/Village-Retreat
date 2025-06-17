@@ -105,8 +105,8 @@ public class GameManagerPainting : MonoBehaviour
           LoadMainMenu();
      }
 
-    void LoadMainMenu()
-    {
+     void LoadMainMenu()
+     {
           if (endScreenMusicInstance.isValid())
           {
                endScreenMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
@@ -123,7 +123,7 @@ public class GameManagerPainting : MonoBehaviour
                SceneManager.LoadScene("Island");
           }
 
-    }
+     }
 
      public void AddScore(int value)
      {
@@ -140,10 +140,16 @@ public class GameManagerPainting : MonoBehaviour
      public void StartTimer()
      {
           isRunning = true;
-          
+
           gameplayMusicInstance = RuntimeManager.CreateInstance(gameplayMusicEvent);
           gameplayMusicInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
           gameplayMusicInstance.setVolume(0.05f);
           gameplayMusicInstance.start();
      }
+
+     public void Surrender()
+          {
+          EndGame("Surrender!");
+          }
+
 }

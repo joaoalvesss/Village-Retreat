@@ -33,7 +33,7 @@ public class GameManagerZenGarden : MonoBehaviour
         elapsedTime = 0f;
         isRunning = false;
         UpdateScoreUI();
-
+        
         if (giveUpButton != null)
             giveUpButton.onClick.AddListener(ForceEndGame);
 
@@ -54,7 +54,7 @@ public class GameManagerZenGarden : MonoBehaviour
             if (gridManager.AreAllTargetsCovered())
             {
                 isRunning = false;
-
+                
                 int matchedCount = 0;
                 foreach (TargetTile target in FindObjectsByType<TargetTile>(FindObjectsSortMode.None))
                 {
@@ -84,7 +84,7 @@ public class GameManagerZenGarden : MonoBehaviour
 
         timerSoundInstance = RuntimeManager.CreateInstance(timerSound);
         timerSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
-        timerSoundInstance.setVolume(0.01f);
+        timerSoundInstance.setVolume(0.01f); 
         timerSoundInstance.start();
     }
 
@@ -166,7 +166,7 @@ public class GameManagerZenGarden : MonoBehaviour
             feedbackText.gameObject.SetActive(false);
     }
 
-
+    
     void TogglePause()
     {
         isPaused = !isPaused;
@@ -196,8 +196,8 @@ public class GameManagerZenGarden : MonoBehaviour
         {
             GlobalVariables.Instance.bush = 1;
 
-            AddScore(100);
-            AwardTimeBonus();
+            AddScore(100); 
+            AwardTimeBonus(); 
             if (timerSoundInstance.isValid())
             {
                 timerSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
@@ -259,23 +259,6 @@ public class GameManagerZenGarden : MonoBehaviour
     {
         StopAllCoroutines();
         LoadNextScene();
-    }
-
-    public void RestartGame()
-    {
-        if (winMusicInstance.isValid())
-        {
-            winMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            winMusicInstance.release();
-        }
-
-        if (timerSoundInstance.isValid())
-        {
-            timerSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            timerSoundInstance.release();
-        }
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

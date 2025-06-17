@@ -156,6 +156,7 @@ MonoBehaviour:
   finalScoreText: {fileID: 2137833062}
   timeSound: event:/Music/minigames/countdown_signal
   skipSound: event:/UI/Skip
+  logSpawner: {fileID: 0}
 --- !u!4 &30882119
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +470,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9bdd3e4913f6e7b4e850381c73b172fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72b42a0dcead0804b8f82b3a7312e4d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

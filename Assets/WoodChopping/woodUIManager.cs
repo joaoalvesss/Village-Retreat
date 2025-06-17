@@ -19,6 +19,10 @@ public class WoodUIManager : MonoBehaviour
     public string timeSound = "event:/Music/minigames/countdown_signal";
     public string skipSound = "event:/UI/Skip";
     private bool playedTimeSound = false;
+    private FMOD.Studio.EventInstance timeSoundInstance;
+    private FMOD.Studio.EventInstance skipSoundInstance;
+
+    public LogSpawner logSpawner;
 
     public void UpdateScore(int score)
     {
@@ -31,7 +35,9 @@ public class WoodUIManager : MonoBehaviour
         timerText.text = Mathf.CeilToInt(timeLeft).ToString();
         if (Mathf.CeilToInt(timeLeft) == 3 && !playedTimeSound) {
             Debug.Log("3 seconds left!");
-            RuntimeManager.PlayOneShot(timeSound, transform.position);
+            timeSoundInstance = RuntimeManager.CreateInstance(timeSound);
+            timeSoundInstance.setVolume(0.01f);
+            timeSoundInstance.start();
             playedTimeSound = true;
         }
     }
@@ -70,7 +76,10 @@ public class WoodUIManager : MonoBehaviour
 
     public void SkipToNextScene()
     {
-        RuntimeManager.PlayOneShot(skipSound, transform.position);
+        logSpawner.Stop();
+        skipSoundInstance = RuntimeManager.CreateInstance(skipSound);
+        skipSoundInstance.setVolume(0.3f);
+        skipSoundInstance.start();
         StopAllCoroutines();
         if (scoreNum >= 400) GlobalVariables.Instance.wood = 1;
         if (GlobalVariables.Instance.bush == 1 && GlobalVariables.Instance.wood == 1 && GlobalVariables.Instance.ink == 1 && GlobalVariables.Instance.light == 1) SceneManager.LoadScene("CutScene");

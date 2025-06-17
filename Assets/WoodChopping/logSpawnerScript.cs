@@ -17,13 +17,21 @@ public class LogSpawner : MonoBehaviour
     public WoodUIManager uiManager; // assign this in inspector
 
     public string musicSound = "event:/Music/minigames/Mini 02";
+    private FMOD.Studio.EventInstance MusicInstance;
 
     void Start()
     {
         SpawnNewLog();
         uiManager.UpdateScore(score);
         uiManager.UpdateTimer(timeLeft);
-        RuntimeManager.PlayOneShot(musicSound, transform.position);
+        MusicInstance = RuntimeManager.CreateInstance(musicSound);
+        MusicInstance.setVolume(0.05f);
+        MusicInstance.start();
+    }
+
+    public void Stop()
+    {
+        MusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     void Update()

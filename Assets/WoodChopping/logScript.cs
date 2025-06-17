@@ -23,6 +23,9 @@ public class LogController : MonoBehaviour
     public string cutSound = "event:/Minigames/Woodchopping/cortar_madeira1";
     public string successSound = "event:/Minigames/Success";
     public string failureSound = "event:/Minigames/Failure";
+    private FMOD.Studio.EventInstance cutSoundInstance;
+    private FMOD.Studio.EventInstance successSoundInstance;
+    private FMOD.Studio.EventInstance failureSoundInstance;
 
     GameObject FindInactiveObjectByName(string name)
     {
@@ -151,7 +154,9 @@ public class LogController : MonoBehaviour
 
     public void CutAtPosition(float x, int playerId)
     {
-        RuntimeManager.PlayOneShot(cutSound, transform.position);
+        cutSoundInstance = RuntimeManager.CreateInstance(cutSound);
+        cutSoundInstance.setVolume(0.3f);
+        cutSoundInstance.start();
         Quaternion rotation = Quaternion.Euler(90f, 180f, 0f);
         Debug.Log($"Player {playerId} is trying to cut a log!");
         List<float> side = playerId == 1 ? leftCutPoints : rightCutPoints;
@@ -173,7 +178,9 @@ public class LogController : MonoBehaviour
         }
 
         Debug.Log($"Player {playerId} missed the cut!");
-        RuntimeManager.PlayOneShot(failureSound, transform.position);
+        failureSoundInstance = RuntimeManager.CreateInstance(failureSound);
+        failureSoundInstance.setVolume(0.3f);
+        failureSoundInstance.start();
         GameObject cutMade2 = Instantiate(cutPrefab, new Vector3(x, -2f, -0.015f), rotation, transform);
         cutMade2.transform.localScale = new Vector3(0.045f, 1f, 0.988f);
         spawner.AddScore(-10);
@@ -187,7 +194,9 @@ public class LogController : MonoBehaviour
         {
             Debug.Log("Log fully chopped!");
             spawner.AddScore(50);
-            RuntimeManager.PlayOneShot(successSound, transform.position);
+            successSoundInstance = RuntimeManager.CreateInstance(successSound);
+            successSoundInstance.setVolume(0.3f);
+            successSoundInstance.start();
             // You could start a fall animation or spawn the next log here
             StartCoroutine(FallAndDestroy());
         }

@@ -1081,6 +1081,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: MainMenuUI
+  hoverSoundEvent: event:/UI/UI_hover
+  clickSound: event:/UI/UI_click_menu_hover
 --- !u!1 &239783899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wood: 0
   light: 0
-  ink: 0
+  ink: 1
   bush: 0
 --- !u!4 &239783901
 Transform:
@@ -5463,6 +5465,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicEvent: event:/Ambience/ambience_wind_birds_leaves
+  backgroundMusic:
+  - event:/Music/music 01
+  - event:/Music/music_animalcrossing1
+  - event:/Music/music_animalcrossing2
+  - event:/Music/music_animalcrossing3
+  - event:/Music/music_animalcrossing4
   volume: 1
 --- !u!1 &1973106404 stripped
 GameObject:

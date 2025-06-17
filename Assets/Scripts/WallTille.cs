@@ -41,7 +41,7 @@ public class WallTile : MonoBehaviour
 
     public bool IsCorrect()
     {
-        return AreColorsSimilar(currentColor, targetColor, 0.01f);
+        return AreColorsSimilar(currentColor, targetColor, 0.05f);
     }
 
     private bool AreColorsSimilar(Color a, Color b, float tolerance)

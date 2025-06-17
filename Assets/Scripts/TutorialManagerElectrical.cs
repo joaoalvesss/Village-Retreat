@@ -10,11 +10,9 @@ public class TutorialManagerElectrical : MonoBehaviour
     public GameObject tutorialUI;
     public GameObject gameplayUI;
     public SpeechBalloon player1Balloon;
-    public SpeechBalloon player2Balloon;
     public GameObject continuePrompt;
 
     public Image image1;
-    public Image image2;
 
     private int step = 0;
 
@@ -37,7 +35,6 @@ public class TutorialManagerElectrical : MonoBehaviour
         gameplayUI.SetActive(false);
         continuePrompt.SetActive(false);
         player1Balloon.Hide(image1);
-        player2Balloon.Hide(image1);
         instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         ShowNextStep();
     }
@@ -61,13 +58,7 @@ public class TutorialManagerElectrical : MonoBehaviour
     void ShowNextStep()
     {
         step++;
-        if (step % 2 != 0)
-        {
-            player2Balloon.Hide(image1);
-        } else
-        {
-            player1Balloon.Hide(image1);
-        }
+        player1Balloon.Hide(image1);
         continuePrompt.SetActive(true);
 
 
@@ -81,7 +72,7 @@ public class TutorialManagerElectrical : MonoBehaviour
                 instance2.start();
                 break;
             case 2:
-                player2Balloon.Show("Rotate the cables with Enter and E to guide the power to the house!", image2);
+                player1Balloon.Show("Rotate the cables with Enter and E to guide the power to the house!", image1);
                 instance2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 instance2.start();
                 break;
@@ -91,7 +82,7 @@ public class TutorialManagerElectrical : MonoBehaviour
                 instance2.start();
                 break;
             case 4:
-                player2Balloon.Show("You must connect all cables to either another cable, a generator or the house!", image2);
+                player1Balloon.Show("You must connect all cables to either another cable, a generator or the house!", image1);
                 instance2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 instance2.start();
                 break; 
@@ -101,7 +92,7 @@ public class TutorialManagerElectrical : MonoBehaviour
                 instance2.start();
                 break;           
             case 6:
-                player2Balloon.Show("But you will have to work together!", image2);
+                player1Balloon.Show("But you will have to work together!", image1);
                 instance2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 instance2.start();
                 break;
@@ -111,7 +102,7 @@ public class TutorialManagerElectrical : MonoBehaviour
                 instance2.start();
                 break;
             case 8:
-                player2Balloon.Show("Work together and beat the timer to get electricity to your new house!", image1);
+                player1Balloon.Show("Work together and beat the timer to get electricity to your new house!", image1);
                 instance2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 instance2.start();
                 break;

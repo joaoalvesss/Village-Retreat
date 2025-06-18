@@ -9,35 +9,53 @@ public class Brush : MonoBehaviour
     private Renderer rend;
     public KeyCode paintKey = KeyCode.Space;
     public PlayerOwner playerOwner;
+    public int currentColorIndex = -1;
 
     void Start()
     {
         rend = GetComponent<Renderer>();
+
+        Color[] palette = FindFirstObjectByType<PatternManager>().palette.colors;
+
+        if (playerOwner == PlayerOwner.Player1 && palette.Length > 0)
+        {
+            currentColorIndex = 0;
+            currentColor = palette[currentColorIndex];
+        }
+        else if (playerOwner == PlayerOwner.Player2 && palette.Length > 1)
+        {
+            currentColorIndex = 1;
+            currentColor = palette[currentColorIndex];
+        }
+
         UpdateBrushColorVisual();
     }
+
 
     void Update()
     {
         if (Input.GetKeyDown(paintKey))
         {
-            if (overlappingTile != null)
+            if (overlappingSource != null && overlappingSource.owner == playerOwner)
             {
-                overlappingTile.Paint(currentColor);
+                currentColor = overlappingSource.paintColor;
+                currentColorIndex = overlappingSource.colorIndex;
+                UpdateBrushColorVisual();
+                Debug.Log($"Picked up color: index={currentColorIndex}, color={currentColor}");
+            }
+
+            if (overlappingTile != null && currentColorIndex >= 0)
+            {
+                overlappingTile.Paint(currentColor, currentColorIndex);
+
                 if (FindFirstObjectByType<PatternManager>()?.IsPatternMatched() == true)
                 {
                     FindFirstObjectByType<GameManagerPainting>()?.EndGame("YOU WON!");
                 }
-
-            }
-
-            if (overlappingSource != null && overlappingSource.owner == playerOwner)
-            {
-                currentColor = overlappingSource.paintColor;
-                Debug.Log("Picked up color: " + currentColor);
-                UpdateBrushColorVisual();
             }
         }
     }
+
 
     void OnTriggerEnter(Collider other)
     {

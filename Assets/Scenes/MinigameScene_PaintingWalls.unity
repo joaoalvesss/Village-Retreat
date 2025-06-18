@@ -513,11 +513,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1185518218}
   scoreText: {fileID: 1894368388}
-  maxTime: 180
+  maxTime: 150
   endScreen: {fileID: 1620860647}
   gameScreen: {fileID: 332193735}
   endMessage: {fileID: 1694385549}
-  returnDelay: 180
+  returnDelay: 30
   returnCountdownText: {fileID: 330204946}
   endScreenMusicEvent:
     Guid:
@@ -1648,6 +1648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintColor: {r: 1, g: 0.5254902, b: 0.14117648, a: 0}
   owner: 0
+  colorIndex: 0
 --- !u!4 &552559197
 Transform:
   m_ObjectHideFlags: 0
@@ -1774,6 +1775,7 @@ MonoBehaviour:
   brushColorUI: {fileID: 1726052440}
   paintKey: 102
   playerOwner: 0
+  currentColorIndex: -1
 --- !u!114 &657186910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1956,6 +1958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintColor: {r: 1, g: 0.7490196, b: 0, a: 0}
   owner: 1
+  colorIndex: 0
 --- !u!4 &710445132
 Transform:
   m_ObjectHideFlags: 0
@@ -2656,15 +2659,15 @@ RectTransform:
   m_GameObject: {fileID: 1101563832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: -1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 332193736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 775, y: -200}
-  m_SizeDelta: {x: 270, y: 580}
+  m_AnchoredPosition: {x: 775, y: 25}
+  m_SizeDelta: {x: 270, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101563835
 MonoBehaviour:
@@ -2836,6 +2839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintColor: {r: 0, g: 0.5019608, b: 0.5019608, a: 0}
   owner: 1
+  colorIndex: 0
 --- !u!4 &1160975743
 Transform:
   m_ObjectHideFlags: 0
@@ -4965,6 +4969,7 @@ MonoBehaviour:
   brushColorUI: {fileID: 961872011}
   paintKey: 13
   playerOwner: 1
+  currentColorIndex: -1
 --- !u!65 &1876201848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5121,6 +5126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintColor: {r: 0.7058824, g: 0.49411765, b: 0.8980392, a: 0}
   owner: 0
+  colorIndex: 0
 --- !u!4 &1880500236
 Transform:
   m_ObjectHideFlags: 0

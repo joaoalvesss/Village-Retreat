@@ -513,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1185518218}
   scoreText: {fileID: 1894368388}
-  maxTime: 180
+  maxTime: 300
   endScreen: {fileID: 1620860647}
   gameScreen: {fileID: 332193735}
   endMessage: {fileID: 1694385549}
@@ -1647,6 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintColor: {r: 1, g: 0.5254902, b: 0.14117648, a: 0}
+  colorIndex: 0
   owner: 0
 --- !u!4 &552559197
 Transform:
@@ -1771,6 +1772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentColor: {r: 1, g: 0.5254902, b: 0.14117648, a: 0}
+  currentColorIndex: -1
   brushColorUI: {fileID: 1726052440}
   paintKey: 102
   playerOwner: 0
@@ -1955,6 +1957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintColor: {r: 1, g: 0.7490196, b: 0, a: 0}
+  colorIndex: 0
   owner: 1
 --- !u!4 &710445132
 Transform:
@@ -2656,15 +2659,15 @@ RectTransform:
   m_GameObject: {fileID: 1101563832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: -1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 332193736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 775, y: -200}
-  m_SizeDelta: {x: 270, y: 580}
+  m_AnchoredPosition: {x: 775, y: 80}
+  m_SizeDelta: {x: 270, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101563835
 MonoBehaviour:
@@ -2835,6 +2838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintColor: {r: 0, g: 0.5019608, b: 0.5019608, a: 0}
+  colorIndex: 0
   owner: 1
 --- !u!4 &1160975743
 Transform:
@@ -4962,6 +4966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentColor: {r: 0, g: 0.5019608, b: 0.5019608, a: 0}
+  currentColorIndex: -1
   brushColorUI: {fileID: 961872011}
   paintKey: 13
   playerOwner: 1
@@ -5120,6 +5125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintColor: {r: 0.7058824, g: 0.49411765, b: 0.8980392, a: 0}
+  colorIndex: 0
   owner: 0
 --- !u!4 &1880500236
 Transform:

@@ -3,16 +3,34 @@ using UnityEngine;
 public class Brush : MonoBehaviour
 {
     public Color currentColor = Color.clear;
+    public int currentColorIndex = -1;
+
     private WallTile overlappingTile;
     private PaintSource overlappingSource;
     public UnityEngine.UI.Image brushColorUI;
     private Renderer rend;
     public KeyCode paintKey = KeyCode.Space;
     public PlayerOwner playerOwner;
+    private bool hasPaint = false;
 
     void Start()
     {
         rend = GetComponent<Renderer>();
+
+        // Assign default starting color based on player owner
+        Color[] palette = FindFirstObjectByType<PatternManager>().palette.colors;
+
+        if (playerOwner == PlayerOwner.Player1 && palette.Length > 0)
+        {
+            currentColor = palette[0];
+            currentColorIndex = 0;
+        }
+        else if (playerOwner == PlayerOwner.Player2 && palette.Length > 1)
+        {
+            currentColor = palette[1];
+            currentColorIndex = 1;
+        }
+
         UpdateBrushColorVisual();
     }
 
@@ -20,21 +38,28 @@ public class Brush : MonoBehaviour
     {
         if (Input.GetKeyDown(paintKey))
         {
-            if (overlappingTile != null)
+            // Only update color if overlapping a source
+            if (overlappingSource != null && overlappingSource.owner == playerOwner)
             {
-                overlappingTile.Paint(currentColor);
+                currentColor = overlappingSource.paintColor;
+                currentColorIndex = overlappingSource.colorIndex;
+                UpdateBrushColorVisual();
+                Debug.Log($"Picked up color: index={currentColorIndex}, color={currentColor}");
+            }
+
+            // Only paint if brush has valid color index
+            if (overlappingTile != null && currentColorIndex >= 0)
+            {
+                overlappingTile.Paint(currentColor, currentColorIndex);
+
                 if (FindFirstObjectByType<PatternManager>()?.IsPatternMatched() == true)
                 {
                     FindFirstObjectByType<GameManagerPainting>()?.EndGame("YOU WON!");
                 }
-
             }
-
-            if (overlappingSource != null && overlappingSource.owner == playerOwner)
+            else if (overlappingTile != null)
             {
-                currentColor = overlappingSource.paintColor;
-                Debug.Log("Picked up color: " + currentColor);
-                UpdateBrushColorVisual();
+                Debug.LogWarning($"Cannot paint: brush has no valid color index. currentIndex={currentColorIndex}");
             }
         }
     }
@@ -64,7 +89,7 @@ public class Brush : MonoBehaviour
 
         if (currentColor == Color.clear)
         {
-            brushColorUI.color = new Color(255, 255, 255, 255); 
+            brushColorUI.color = new Color(255, 255, 255, 255);
         }
         else
         {
@@ -73,4 +98,23 @@ public class Brush : MonoBehaviour
             brushColorUI.color = uiColor;
         }
     }
+    
+    int FindColorIndex(Color color)
+    {
+        Color[] palette = FindFirstObjectByType<PatternManager>().palette.colors;
+        for (int i = 0; i < palette.Length; i++)
+        {
+            if (AreColorsClose(palette[i], color, 0.01f))
+                return i;
+        }
+        return -1;
+    }
+
+    bool AreColorsClose(Color a, Color b, float tolerance)
+    {
+        return Mathf.Abs(a.r - b.r) < tolerance &&
+            Mathf.Abs(a.g - b.g) < tolerance &&
+            Mathf.Abs(a.b - b.b) < tolerance;
+    }
+
 }

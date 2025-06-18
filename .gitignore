@@ -87,3 +87,5 @@ crashlytics-build.properties
 
 # Optional: ignore mobile platform source files if not used
 Assets/Plugins/FMOD/src/PlatformIOS.cs
+
+/Assets/TextMesh Pro/**/Fonts & Materials/

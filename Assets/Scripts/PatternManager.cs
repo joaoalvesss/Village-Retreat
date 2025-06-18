@@ -14,9 +14,11 @@ public class PatternManager : MonoBehaviour
 
     public void GeneratePattern()
     {
-        foreach (WallTile tile in tiles)
+        for (int i = 0; i < tiles.Length; i++)
         {
-            tile.targetColor = palette.colors[Random.Range(0, palette.colors.Length)];
+            int randomIndex = Random.Range(0, palette.colors.Length);
+            tiles[i].targetColorIndex = randomIndex;
+            tiles[i].targetColor = palette.colors[randomIndex];
         }
     }
 
@@ -24,9 +26,9 @@ public class PatternManager : MonoBehaviour
     {
         foreach (WallTile tile in tiles)
         {
-            if (!tile.IsCorrect())
+            if (tile.currentColorIndex != tile.targetColorIndex)
             {
-                Debug.Log($"Mismatch on tile {tile.name}: target={tile.targetColor}, current={tile.currentColor}");
+                Debug.Log($"Mismatch on tile {tile.name}: targetIndex={tile.targetColorIndex}, currentIndex={tile.currentColorIndex}");
                 return false;
             }
         }

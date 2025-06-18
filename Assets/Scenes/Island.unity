@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wood: 0
   light: 0
-  ink: 1
+  ink: 0
   bush: 0
 --- !u!4 &239783901
 Transform:

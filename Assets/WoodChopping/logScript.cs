@@ -20,7 +20,7 @@ public class LogController : MonoBehaviour
     private List<float> leftCutPoints = new List<float>();
     private List<float> rightCutPoints = new List<float>();
 
-    public string cutSound = "event:/Minigames/Woodchopping/cortar_madeira1";
+    public string cutSound = "event:/Minigames/Woodchopping/cortar_madeira";
     public string successSound = "event:/Minigames/Success";
     public string failureSound = "event:/Minigames/Failure";
     private FMOD.Studio.EventInstance cutSoundInstance;
